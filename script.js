@@ -1,6 +1,6 @@
 const navLinks = [
   ["index.html", "Home", "Inicio"],
-  ["about.html", "Our Team", "Nuestro equipo"],
+  ["about.html", "About Me", "Sobre mi"],
   ["future-technologies.html", "AI Technologies", "Tecnologias de IA"],
   ["tech-vocabulary.html", "AI Vocabulary", "Vocabulario de IA"],
   ["grammar-corner.html", "Grammar Corner", "Gramatica"],
@@ -152,6 +152,7 @@ function getCurrentLanguage() {
 }
 
 function renderPersonProfile(lang = getCurrentLanguage()) {
+  selectedPerson = "samuel";
   const profile = people[selectedPerson];
   if (!profile) return;
   const englishText = profile.en;
@@ -199,7 +200,7 @@ function initPersonSelector() {
 
 const spanishText = {
   "Home": "Inicio",
-  "Our Team": "Nuestro equipo",
+  "About Me": "Sobre mi",
   "AI Technologies": "Tecnologias de IA",
   "AI Vocabulary": "Vocabulario de IA",
   "Grammar Corner": "Gramatica",
@@ -239,6 +240,9 @@ const spanishText = {
   "Samuel Flores Cruz": "Samuel Flores Cruz",
   "Rodrigo Heredia Morante": "Rodrigo Heredia Morante",
   "Michel Daniel Oporto Valencia": "Michel Daniel Oporto Valencia",
+  "1. Samuel Flores Cruz": "1. Samuel Flores Cruz",
+  "2. Rodrigo Heredia Morante": "2. Rodrigo Heredia Morante",
+  "3. Michel Daniel Oporto Valencia": "3. Michel Daniel Oporto Valencia",
   "Project Name": "Nombre del proyecto",
   "Objective:": "Objetivo:",
   "Build a digital portfolio to organize English activities, AI vocabulary, grammar topics, multimedia projects, and semester references.": "Construir un portafolio digital para organizar actividades de ingles, vocabulario de IA, temas de gramatica, proyectos multimedia y referencias del semestre.",
@@ -255,7 +259,7 @@ const spanishText = {
   "Future Technologies": "Tecnologias futuras",
   "Tech Vocabulary": "Vocabulario tecnico",
   "ARTIFICIAL INTELLIGENCE | Home": "INTELIGENCIA ARTIFICIAL | Inicio",
-  "AI GPT | Our Team": "IA GPT | Nuestro equipo",
+  "AI GPT | About Me": "IA GPT | Sobre mi",
   "AI GPT | AI Technologies": "IA GPT | Tecnologias de IA",
   "AI GPT | AI Vocabulary": "IA GPT | Vocabulario de IA",
   "AI GPT | Grammar Corner": "IA GPT | Gramatica",
@@ -271,15 +275,18 @@ const spanishText = {
   "Translate page to English": "Traducir pagina al ingles",
   "Open navigation": "Abrir navegacion",
   "Main navigation": "Navegacion principal",
-  "About Our Team": "Sobre nuestro equipo",
+  "About Me": "Sobre mi",
   "Activity 1": "Actividad 1",
-  "Select a team member to read their information for the English Technical II portfolio.": "Selecciona un integrante para leer su informacion en el portafolio de Ingles Tecnico II.",
+  "Read Samuel's autobiography for the English Technical II portfolio.": "Lee la autobiografia de Samuel para el portafolio de Ingles Tecnico II.",
   "Autobiography": "Autobiografia",
   "My name is ____________________. I am a university student in the Systems Engineering career. I am interested in artificial intelligence because it helps people solve problems, make predictions, automate tasks, and create new opportunities.": "Mi nombre es ____________________. Soy estudiante universitario de la carrera de Ingenieria de Sistemas. Me interesa la inteligencia artificial porque ayuda a las personas a resolver problemas, hacer predicciones, automatizar tareas y crear nuevas oportunidades.",
   "I am learning English because it is important for my academic and professional future. Many AI documents, tutorials, programming resources, and international projects use English, so improving this skill helps me become a better student and future professional.": "Estoy aprendiendo ingles porque es importante para mi futuro academico y profesional. Muchos documentos de IA, tutoriales, recursos de programacion y proyectos internacionales usan ingles, por eso mejorar esta habilidad me ayuda a ser mejor estudiante y futuro profesional.",
   "In this portfolio, I will publish my activities, vocabulary, grammar practice, readings, multimedia resources, and reflections. My goal is to show my progress during the semester and connect English with artificial intelligence.": "En este portafolio publicare mis actividades, vocabulario, practica de gramatica, lecturas, recursos multimedia y reflexiones. Mi objetivo es mostrar mi progreso durante el semestre y conectar el ingles con la inteligencia artificial.",
   "Personal Photo": "Foto personal",
-  "Replace this image with your own photograph when ready.": "Reemplaza esta imagen con tu propia fotografia cuando este lista.",
+  "Photo space": "Espacio para foto",
+  "Place your photo here manually when ready.": "Coloca tu foto aqui manualmente cuando este lista.",
+  "Add photo": "Agregar foto",
+  "Samuel's personal photo placeholder": "Espacio para la foto personal de Samuel",
   "Selected Member": "Integrante seleccionado",
   "Career": "Carrera",
   "Course": "Materia",
