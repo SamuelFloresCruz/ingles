@@ -1,0 +1,516 @@
+const navLinks = [
+  ["index.html", "Home", "Inicio"],
+  ["about.html", "Our Team", "Nuestro equipo"],
+  ["future-technologies.html", "AI Technologies", "Tecnologias de IA"],
+  ["tech-vocabulary.html", "AI Vocabulary", "Vocabulario de IA"],
+  ["grammar-corner.html", "Grammar Corner", "Gramatica"],
+  ["reading-corner.html", "Reading Corner", "Lectura"],
+  ["listening-corner.html", "Listening Corner", "Escucha"],
+  ["speaking-corner.html", "Speaking Corner", "Expresion oral"],
+  ["writing-corner.html", "Writing Corner", "Escritura"],
+  ["gallery.html", "Gallery", "Galeria"],
+  ["resources.html", "Resources", "Recursos"],
+  ["references.html", "References", "Referencias"]
+];
+
+function buildHeader() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  header.innerHTML = `
+    <a class="brand" href="index.html" aria-label="AI GPT home">
+      <span class="brand-mark">AI</span>
+      <span><strong>AI GPT</strong><small>English Team Hub</small></span>
+    </a>
+    <button class="translate-toggle" type="button" aria-label="Translate page to Spanish" data-lang="en">ES</button>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav" aria-label="Main navigation">
+      ${navLinks.map(([href, label]) => `<a href="${href}" data-en="${label}">${label}</a>`).join("")}
+    </nav>
+  `;
+}
+
+function setActiveLink() {
+  const current = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".site-nav a").forEach((link) => {
+    if (link.getAttribute("href") === current) link.classList.add("active");
+  });
+}
+
+function initMenu() {
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".menu-toggle");
+  if (!header || !toggle) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = header.classList.toggle("nav-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+function initGlossarySearch() {
+  const input = document.querySelector("#glossarySearch");
+  const cards = document.querySelectorAll(".vocab-card");
+  if (!input || !cards.length) return;
+
+  input.addEventListener("input", () => {
+    const query = input.value.trim().toLowerCase();
+    cards.forEach((card) => {
+      const text = card.textContent.toLowerCase();
+      const term = card.dataset.term || "";
+      card.hidden = Boolean(query) && !text.includes(query) && !term.includes(query);
+    });
+  });
+}
+
+function initAccordions() {
+  document.querySelectorAll(".accordion-item button").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.parentElement.classList.toggle("open");
+    });
+  });
+}
+
+const people = {
+  samuel: {
+    initials: "SF",
+    en: {
+      name: "Samuel Flores Cruz",
+      career: "Systems Engineering",
+      course: "English Technical II",
+      interest: "Artificial intelligence for learning and productivity.",
+      bioTitle: "Autobiography",
+      bioOne: "My name is Samuel Flores Cruz. I am 21 years old and was born on March 9, 2005. I speak two languages, Spanish and Quechua, and lead a fairly quiet life, free from major upheavals, which is exactly how I like it.\n\nMy family consists of three people: my dad, my mom, and myself. My mother works at the municipal government office, and my father is a bricklayer; occasionally, I join him at construction sites to lend a hand when extra help is needed.\n\nI am currently in my seventh semester of Systems Engineering at the Domingo Savio Private University (UPDS). Mathematics has always been my favorite subject since my school days; I had a knack for it and enjoyed solving problems. Conversely, language-related subjects were never my strong suit; they were the ones I liked the least. In general, I prefer subjects that require logic and reasoning over those based on rote memorization or heavy theory.\n\nAs for personal preferences, there are a few things I tend to avoid: I dislike getting up early or leaving the house unless it is necessary. I prefer staying in a quiet, familiar environment rather than constantly going out. My hobbies reflect this preference, playing video games, sleeping, and watching anime, since they are activities I can enjoy without leaving home. Interestingly, the exact opposite was true during my childhood and adolescence: I really enjoyed going out and staying active.\n\nIn short, I am someone who values a quiet routine, prioritizing simplicity and familiarity over constant hustle and bustle; my studies, my family, and my hobbies form the pillars of my daily life.",
+      bioTwo: "I am learning English because many AI tools, tutorials, articles, and technical documents are written in English. Improving this skill helps me understand technology better and communicate my ideas in a professional way.",
+      bioThree: "In this portfolio, I share activities, vocabulary, grammar practice, readings, multimedia resources, and reflections about artificial intelligence."
+    },
+    es: {
+      name: "Samuel Flores Cruz",
+      career: "Ingenieria de Sistemas",
+      course: "Ingles Tecnico II",
+      interest: "Inteligencia artificial para el aprendizaje y la productividad.",
+      bioTitle: "Autobiografia",
+      bioOne: "Mi nombre es Samuel Flores Cruz. Tengo 21 anos y naci el 9 de marzo de 2005. Hablo dos idiomas, espanol y quechua, y llevo una vida bastante tranquila, libre de grandes cambios, que es exactamente como me gusta.\n\nMi familia esta formada por tres personas: mi papa, mi mama y yo. Mi madre trabaja en la alcaldia, y mi padre es albanil; ocasionalmente, lo acompano a obras de construccion para ayudarlo cuando se necesita apoyo extra.\n\nActualmente estoy en el septimo semestre de Ingenieria de Sistemas en la Universidad Privada Domingo Savio (UPDS). Las matematicas siempre han sido mi materia favorita desde mis dias de colegio; tenia facilidad para ellas y disfrutaba resolver problemas. Por el contrario, las materias relacionadas con lenguaje nunca fueron mi punto fuerte; eran las que menos me gustaban. En general, prefiero las materias que requieren logica y razonamiento sobre aquellas basadas en la memorizacion o mucha teoria.\n\nEn cuanto a mis preferencias personales, hay algunas cosas que suelo evitar: no me gusta levantarme temprano ni salir de casa a menos que sea necesario. Prefiero quedarme en un ambiente tranquilo y familiar en lugar de salir constantemente. Mis pasatiempos reflejan esta preferencia: jugar videojuegos, dormir y ver anime, ya que son actividades que puedo disfrutar sin salir de casa. Curiosamente, durante mi ninez y adolescencia ocurria todo lo contrario: realmente disfrutaba salir y mantenerme activo.\n\nEn resumen, soy una persona que valora una rutina tranquila, priorizando la simplicidad y la familiaridad sobre el movimiento constante; mis estudios, mi familia y mis pasatiempos forman los pilares de mi vida diaria.",
+      bioTwo: "Estoy aprendiendo ingles porque muchas herramientas, tutoriales, articulos y documentos tecnicos sobre IA estan escritos en ingles. Mejorar esta habilidad me ayuda a comprender mejor la tecnologia y comunicar mis ideas de manera profesional.",
+      bioThree: "En este portafolio comparto actividades, vocabulario, practica de gramatica, lecturas, recursos multimedia y reflexiones sobre inteligencia artificial."
+    }
+  },
+  rodrigo: {
+    initials: "RH",
+    en: {
+      name: "Rodrigo Heredia Morante",
+      career: "Systems Engineering",
+      course: "English Technical II",
+      interest: "Artificial intelligence for automation and decision making.",
+      bioTitle: "Autobiography",
+      bioOne: "My name is Rodrigo Heredia Morante. I am a Systems Engineering student, and I am interested in how artificial intelligence can automate tasks, analyze data, and support better decisions.",
+      bioTwo: "English is important for my professional development because programming documentation, AI research, and international technology communities usually use English.",
+      bioThree: "Through this portfolio, I want to show my progress in English while connecting grammar, vocabulary, reading, listening, speaking, and writing with artificial intelligence."
+    },
+    es: {
+      name: "Rodrigo Heredia Morante",
+      career: "Ingenieria de Sistemas",
+      course: "Ingles Tecnico II",
+      interest: "Inteligencia artificial para automatizacion y toma de decisiones.",
+      bioTitle: "Autobiografia",
+      bioOne: "Mi nombre es Rodrigo Heredia Morante. Soy estudiante de Ingenieria de Sistemas y me interesa como la inteligencia artificial puede automatizar tareas, analizar datos y apoyar mejores decisiones.",
+      bioTwo: "El ingles es importante para mi desarrollo profesional porque la documentacion de programacion, la investigacion sobre IA y las comunidades internacionales de tecnologia normalmente usan ingles.",
+      bioThree: "Mediante este portafolio quiero mostrar mi progreso en ingles conectando gramatica, vocabulario, lectura, escucha, speaking y escritura con la inteligencia artificial."
+    }
+  },
+  michel: {
+    initials: "MO",
+    en: {
+      name: "Michel Daniel Oporto Valencia",
+      career: "Systems Engineering",
+      course: "English Technical II",
+      interest: "Artificial intelligence for innovation and problem solving.",
+      bioTitle: "Autobiography",
+      bioOne: "My name is Michel Daniel Oporto Valencia. I study Systems Engineering and I am interested in artificial intelligence because it offers new ways to create solutions for real problems.",
+      bioTwo: "Learning English helps me access technical information, understand AI tools, watch tutorials, and participate in academic and professional environments.",
+      bioThree: "This portfolio presents my English activities and my reflections about how artificial intelligence can influence education, work, and society."
+    },
+    es: {
+      name: "Michel Daniel Oporto Valencia",
+      career: "Ingenieria de Sistemas",
+      course: "Ingles Tecnico II",
+      interest: "Inteligencia artificial para innovacion y solucion de problemas.",
+      bioTitle: "Autobiografia",
+      bioOne: "Mi nombre es Michel Daniel Oporto Valencia. Estudio Ingenieria de Sistemas y me interesa la inteligencia artificial porque ofrece nuevas formas de crear soluciones para problemas reales.",
+      bioTwo: "Aprender ingles me ayuda a acceder a informacion tecnica, comprender herramientas de IA, ver tutoriales y participar en entornos academicos y profesionales.",
+      bioThree: "Este portafolio presenta mis actividades de ingles y mis reflexiones sobre como la inteligencia artificial puede influir en la educacion, el trabajo y la sociedad."
+    }
+  }
+};
+
+let selectedPerson = localStorage.getItem("selectedPerson") || "samuel";
+
+function getCurrentLanguage() {
+  const urlLang = new URLSearchParams(window.location.search).get("lang");
+  if (urlLang === "es" || urlLang === "en") return urlLang;
+  return localStorage.getItem("siteLanguage") || "en";
+}
+
+function renderPersonProfile(lang = getCurrentLanguage()) {
+  const profile = people[selectedPerson];
+  if (!profile) return;
+  const englishText = profile.en;
+  const translatedText = profile[lang === "es" ? "es" : "en"];
+  const text = { ...englishText, ...translatedText };
+  Object.entries(text).forEach(([key, value]) => {
+    if (!value) text[key] = englishText[key];
+  });
+  const fields = {
+    personName: text.name,
+    personInitials: profile.initials,
+    personCareer: text.career,
+    personCourse: text.course,
+    personInterest: text.interest,
+    personBioTitle: text.bioTitle,
+    personBioOne: text.bioOne,
+    personBioTwo: text.bioTwo,
+    personBioThree: text.bioThree
+  };
+
+  Object.entries(fields).forEach(([id, value]) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  });
+
+  document.querySelectorAll(".person-button").forEach((button) => {
+    button.classList.toggle("active", button.dataset.person === selectedPerson);
+  });
+}
+
+function initPersonSelector() {
+  const buttons = document.querySelectorAll(".person-button");
+  if (!buttons.length) return;
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedPerson = button.dataset.person || "samuel";
+      localStorage.setItem("selectedPerson", selectedPerson);
+      renderPersonProfile();
+    });
+  });
+
+  renderPersonProfile();
+}
+
+const spanishText = {
+  "Home": "Inicio",
+  "Our Team": "Nuestro equipo",
+  "AI Technologies": "Tecnologias de IA",
+  "AI Vocabulary": "Vocabulario de IA",
+  "Grammar Corner": "Gramatica",
+  "Reading Corner": "Lectura",
+  "Listening Corner": "Escucha",
+  "Speaking Corner": "Expresion oral",
+  "Writing Corner": "Escritura",
+  "Gallery": "Galeria",
+  "Resources": "Recursos",
+  "References": "Referencias",
+  "Welcome to": "Bienvenido a",
+  "Welcome to the Artificial Intelligence English Hub.": "Bienvenido al Hub de Ingles sobre Inteligencia Artificial.",
+  "AI GPT": "IA GPT",
+  "AI": "IA",
+  "English Team Hub": "Hub de Ingles en Equipo",
+  "FutureTech English Hub home": "Inicio de FutureTech English Hub",
+  "Futuristic technology scene with human and robotic hands": "Escena de tecnologia futurista con manos humana y robotica",
+  "Project introduction": "Introduccion del proyecto",
+  "Intelligence Lab": "Laboratorio de Inteligencia",
+  "This is our digital portfolio for English Technical II. Here we share our learning journey, projects, and activities about artificial intelligence and its impact on the future.": "Este es nuestro portafolio digital para Ingles Tecnico II. Aqui compartimos nuestro proceso de aprendizaje, proyectos y actividades sobre inteligencia artificial y su impacto en el futuro.",
+  "Explore Our Site": "Explorar nuestro sitio",
+  "About This Site": "Sobre este sitio",
+  "AI GPT is a team digital portfolio created to practice English through artificial intelligence topics in technical and academic contexts.": "AI GPT es un portafolio digital grupal creado para practicar ingles mediante temas de inteligencia artificial en contextos tecnicos y academicos.",
+  "Our Goals": "Nuestros objetivos",
+  "Improve our English skills.": "Mejorar nuestras habilidades en ingles.",
+  "Learn technical vocabulary about AI.": "Aprender vocabulario tecnico sobre IA.",
+  "Communicate ideas about intelligent systems.": "Comunicar ideas sobre sistemas inteligentes.",
+  "Develop digital and academic competencies.": "Desarrollar competencias digitales y academicas.",
+  "What You'll Find Here": "Que encontraras aqui",
+  "Vocabulary and grammar resources.": "Recursos de vocabulario y gramatica.",
+  "Reading, listening, speaking, and writing activities.": "Actividades de lectura, escucha, speaking y escritura.",
+  "Projects, infographics, and reflections about AI.": "Proyectos, infografias y reflexiones sobre IA.",
+  "Systems Engineering Student": "Estudiante de Ingenieria de Sistemas",
+  "English Technical II": "Ingles Tecnico II",
+  "Passionate about artificial intelligence, innovation, and learning.": "Apasionado por la inteligencia artificial, la innovacion y el aprendizaje.",
+  "Team Members": "Integrantes del equipo",
+  "Samuel Flores Cruz": "Samuel Flores Cruz",
+  "Rodrigo Heredia Morante": "Rodrigo Heredia Morante",
+  "Michel Daniel Oporto Valencia": "Michel Daniel Oporto Valencia",
+  "Project Name": "Nombre del proyecto",
+  "Objective:": "Objetivo:",
+  "Build a digital portfolio to organize English activities, AI vocabulary, grammar topics, multimedia projects, and semester references.": "Construir un portafolio digital para organizar actividades de ingles, vocabulario de IA, temas de gramatica, proyectos multimedia y referencias del semestre.",
+  "Build a collaborative digital portfolio to organize our English activities, AI vocabulary, grammar topics, multimedia projects, and semester references.": "Construir un portafolio digital colaborativo para organizar nuestras actividades de ingles, vocabulario de IA, temas de gramatica, proyectos multimedia y referencias del semestre.",
+  "Group Members:": "Integrantes:",
+  "Samuel Flores Cruz, Rodrigo Heredia Morante, and Michel Daniel Oporto Valencia.": "Samuel Flores Cruz, Rodrigo Heredia Morante y Michel Daniel Oporto Valencia.",
+  "Career:": "Carrera:",
+  "Systems Engineering.": "Ingenieria de Sistemas.",
+  "University:": "Universidad:",
+  "Add your university name here.": "Agrega aqui el nombre de tu universidad.",
+  "Quick Access": "Acceso rapido",
+  "Portfolio Pages": "Paginas del portafolio",
+  "Artificial Intelligence": "Inteligencia Artificial",
+  "Future Technologies": "Tecnologias futuras",
+  "Tech Vocabulary": "Vocabulario tecnico",
+  "ARTIFICIAL INTELLIGENCE | Home": "INTELIGENCIA ARTIFICIAL | Inicio",
+  "AI GPT | Our Team": "IA GPT | Nuestro equipo",
+  "AI GPT | AI Technologies": "IA GPT | Tecnologias de IA",
+  "AI GPT | AI Vocabulary": "IA GPT | Vocabulario de IA",
+  "AI GPT | Grammar Corner": "IA GPT | Gramatica",
+  "AI GPT | Reading Corner": "IA GPT | Lectura",
+  "AI GPT | Listening Corner": "IA GPT | Escucha",
+  "AI GPT | Speaking Corner": "IA GPT | Expresion oral",
+  "AI GPT | Writing Corner": "IA GPT | Escritura",
+  "AI GPT | Gallery": "IA GPT | Galeria",
+  "AI GPT | Resources": "IA GPT | Recursos",
+  "AI GPT | References": "IA GPT | Referencias",
+  "AI GPT home": "Inicio de IA GPT",
+  "Translate page to Spanish": "Traducir pagina al espanol",
+  "Translate page to English": "Traducir pagina al ingles",
+  "Open navigation": "Abrir navegacion",
+  "Main navigation": "Navegacion principal",
+  "About Our Team": "Sobre nuestro equipo",
+  "Activity 1": "Actividad 1",
+  "Select a team member to read their information for the English Technical II portfolio.": "Selecciona un integrante para leer su informacion en el portafolio de Ingles Tecnico II.",
+  "Autobiography": "Autobiografia",
+  "My name is ____________________. I am a university student in the Systems Engineering career. I am interested in artificial intelligence because it helps people solve problems, make predictions, automate tasks, and create new opportunities.": "Mi nombre es ____________________. Soy estudiante universitario de la carrera de Ingenieria de Sistemas. Me interesa la inteligencia artificial porque ayuda a las personas a resolver problemas, hacer predicciones, automatizar tareas y crear nuevas oportunidades.",
+  "I am learning English because it is important for my academic and professional future. Many AI documents, tutorials, programming resources, and international projects use English, so improving this skill helps me become a better student and future professional.": "Estoy aprendiendo ingles porque es importante para mi futuro academico y profesional. Muchos documentos de IA, tutoriales, recursos de programacion y proyectos internacionales usan ingles, por eso mejorar esta habilidad me ayuda a ser mejor estudiante y futuro profesional.",
+  "In this portfolio, I will publish my activities, vocabulary, grammar practice, readings, multimedia resources, and reflections. My goal is to show my progress during the semester and connect English with artificial intelligence.": "En este portafolio publicare mis actividades, vocabulario, practica de gramatica, lecturas, recursos multimedia y reflexiones. Mi objetivo es mostrar mi progreso durante el semestre y conectar el ingles con la inteligencia artificial.",
+  "Personal Photo": "Foto personal",
+  "Replace this image with your own photograph when ready.": "Reemplaza esta imagen con tu propia fotografia cuando este lista.",
+  "Selected Member": "Integrante seleccionado",
+  "Career": "Carrera",
+  "Course": "Materia",
+  "AI Interest": "Interes en IA",
+  "Choose a Member": "Elige un integrante",
+  "Choose a team member": "Elige un integrante",
+  "Select whose information you want to see.": "Selecciona de quien quieres ver la informacion.",
+  "Team Project": "Proyecto de equipo",
+  "This page belongs to a three-person portfolio about Artificial Intelligence.": "Esta pagina pertenece a un portafolio de tres personas sobre Inteligencia Artificial.",
+  "Canva Banner": "Banner de Canva",
+  "Futuristic technology banner": "Banner de tecnologia futurista",
+  "Definitions and predictions about artificial intelligence and future innovations.": "Definiciones y predicciones sobre inteligencia artificial e innovaciones futuras.",
+  "Machine Learning": "Aprendizaje Automatico",
+  "Machine learning is a branch of AI that allows computer systems to learn patterns from data and improve their performance without being programmed step by step.": "El aprendizaje automatico es una rama de la IA que permite a los sistemas aprender patrones a partir de datos y mejorar su rendimiento sin ser programados paso a paso.",
+  "Prediction:": "Prediccion:",
+  "Machine learning will be used to personalize education, detect diseases earlier, and improve smart services.": "El aprendizaje automatico se usara para personalizar la educacion, detectar enfermedades mas temprano y mejorar servicios inteligentes.",
+  "Natural Language Processing": "Procesamiento del Lenguaje Natural",
+  "Natural language processing is an AI field that helps computers understand, generate, and translate human language.": "El procesamiento del lenguaje natural es un campo de la IA que ayuda a las computadoras a entender, generar y traducir lenguaje humano.",
+  "Chatbots and translators will become more natural, accurate, and useful for global communication.": "Los chatbots y traductores seran mas naturales, precisos y utiles para la comunicacion global.",
+  "Computer Vision": "Vision por Computadora",
+  "Computer vision allows machines to interpret images and videos, recognizing objects, people, movement, and visual patterns.": "La vision por computadora permite a las maquinas interpretar imagenes y videos, reconociendo objetos, personas, movimiento y patrones visuales.",
+  "Computer vision will support autonomous vehicles, security systems, medical diagnosis, and industrial quality control.": "La vision por computadora apoyara vehiculos autonomos, sistemas de seguridad, diagnostico medico y control de calidad industrial.",
+  "Glossary": "Glosario",
+  "Technical words with definitions, images, and example sentences related to artificial intelligence.": "Palabras tecnicas con definiciones, imagenes y oraciones de ejemplo relacionadas con inteligencia artificial.",
+  "Search word": "Buscar palabra",
+  "Type a technology word": "Escribe una palabra de tecnologia",
+  "Definition:": "Definicion:",
+  "Example:": "Ejemplo:",
+  "Technology that allows machines to learn, reason, and make decisions.": "Tecnologia que permite a las maquinas aprender, razonar y tomar decisiones.",
+  "Artificial intelligence can help doctors analyze medical images.": "La inteligencia artificial puede ayudar a los doctores a analizar imagenes medicas.",
+  "Algorithm": "Algoritmo",
+  "A set of instructions that a computer follows to solve a problem or complete a task.": "Un conjunto de instrucciones que una computadora sigue para resolver un problema o completar una tarea.",
+  "The algorithm recommends videos based on user preferences.": "El algoritmo recomienda videos segun las preferencias del usuario.",
+  "Dataset": "Conjunto de datos",
+  "A collection of information used to train or test an AI model.": "Una coleccion de informacion usada para entrenar o probar un modelo de IA.",
+  "A large dataset can improve the accuracy of a machine learning model.": "Un conjunto de datos grande puede mejorar la precision de un modelo de aprendizaje automatico.",
+  "Neural Network": "Red Neuronal",
+  "An AI model inspired by the human brain that recognizes complex patterns.": "Un modelo de IA inspirado en el cerebro humano que reconoce patrones complejos.",
+  "A neural network can identify objects in a photograph.": "Una red neuronal puede identificar objetos en una fotografia.",
+  "Key grammar topics with rules and artificial intelligence examples.": "Temas clave de gramatica con reglas y ejemplos de inteligencia artificial.",
+  "Future Simple": "Futuro Simple",
+  "Structure:": "Estructura:",
+  "will + base verb. Example: AI will transform many professions.": "will + verbo base. Ejemplo: La IA transformara muchas profesiones.",
+  "Going To": "Going To",
+  "Grammar": "Gramatica",
+  "am/is/are going to + verb. Example: We are going to create an AI presentation.": "am/is/are going to + verbo. Ejemplo: Vamos a crear una presentacion sobre IA.",
+  "Modal Verbs": "Verbos Modales",
+  "Use:": "Uso:",
+  "can, should, must, may. Example: Developers must use AI responsibly.": "can, should, must, may. Ejemplo: Los desarrolladores deben usar la IA responsablemente.",
+  "Present Perfect": "Presente Perfecto",
+  "have/has + past participle. Example: AI has changed digital communication.": "have/has + participio pasado. Ejemplo: La IA ha cambiado la comunicacion digital.",
+  "Passive Voice": "Voz Pasiva",
+  "be + past participle. Example: Data is processed by an AI model.": "be + participio pasado. Ejemplo: Los datos son procesados por un modelo de IA.",
+  "Articles": "Articulos",
+  "Articles, summaries, and translations about artificial intelligence.": "Articulos, resumenes y traducciones sobre inteligencia artificial.",
+  "Article 1": "Articulo 1",
+  "Article 2": "Articulo 2",
+  "Article 3": "Articulo 3",
+  "Topic:": "Tema:",
+  "Summary:": "Resumen:",
+  "Translation:": "Traduccion:",
+  "Artificial intelligence in education.": "Inteligencia artificial en la educacion.",
+  "AI tools can personalize learning and support teachers.": "Las herramientas de IA pueden personalizar el aprendizaje y apoyar a los docentes.",
+  "Ethics in artificial intelligence.": "Etica en la inteligencia artificial.",
+  "Responsible AI requires privacy, fairness, and transparency.": "La IA responsable requiere privacidad, equidad y transparencia.",
+  "AI in daily life.": "IA en la vida diaria.",
+  "Intelligent systems are present in search engines, maps, assistants, and recommendations.": "Los sistemas inteligentes estan presentes en buscadores, mapas, asistentes y recomendaciones.",
+  "Add the team Spanish translation here.": "Agrega aqui la traduccion al espanol del equipo.",
+  "Audio and Video": "Audio y video",
+  "Videos, podcasts, notes, and listening reflections about AI.": "Videos, podcasts, notas y reflexiones de escucha sobre IA.",
+  "Video": "Video",
+  "Podcast": "Podcast",
+  "AI Video": "Video de IA",
+  "AI Podcast Episode": "Episodio de podcast sobre IA",
+  "Add a video link, main vocabulary, and listening summary about artificial intelligence.": "Agrega un enlace de video, vocabulario principal y resumen de escucha sobre inteligencia artificial.",
+  "Oral Practice": "Practica oral",
+  "Videos, recordings, and presentations about artificial intelligence.": "Videos, grabaciones y presentaciones sobre inteligencia artificial.",
+  "Video Presentation": "Presentacion en video",
+  "Upload or link the team's oral presentation about an artificial intelligence topic.": "Sube o enlaza la presentacion oral del equipo sobre un tema de inteligencia artificial.",
+  "Voice Recording": "Grabacion de voz",
+  "Add an audio recording about AI and a short pronunciation self-evaluation.": "Agrega una grabacion de audio sobre IA y una breve autoevaluacion de pronunciacion.",
+  "Class Presentation": "Presentacion en clase",
+  "Include slides, script, and teacher feedback about the team's AI presentation.": "Incluye diapositivas, guion y retroalimentacion del docente sobre la presentacion de IA del equipo.",
+  "Written Work": "Trabajo escrito",
+  "Paragraphs, essays, reports, and reflections about AI.": "Parrafos, ensayos, reportes y reflexiones sobre IA.",
+  "Paragraph": "Parrafo",
+  "Reflection": "Reflexion",
+  "Essay": "Ensayo",
+  "Report": "Informe",
+  "Artificial intelligence is important because it helps people analyze information, automate tasks, and solve complex problems. In the future, AI tools will become more intelligent and accessible.": "La inteligencia artificial es importante porque ayuda a las personas a analizar informacion, automatizar tareas y resolver problemas complejos. En el futuro, las herramientas de IA seran mas inteligentes y accesibles.",
+  "During this semester, we have practiced English through artificial intelligence topics. We have learned that vocabulary, grammar, reading, and speaking are connected skills.": "Durante este semestre, hemos practicado ingles mediante temas de inteligencia artificial. Hemos aprendido que el vocabulario, la gramatica, la lectura y el speaking son habilidades conectadas.",
+  "Add our essay about artificial intelligence, education, ethics, machine learning, or automation.": "Agrega nuestro ensayo sobre inteligencia artificial, educacion, etica, aprendizaje automatico o automatizacion.",
+  "Add our report with title, objective, development, conclusion, and references.": "Agrega nuestro reporte con titulo, objetivo, desarrollo, conclusion y referencias.",
+  "Add podcast title, source, new words, and a team reflection about AI.": "Agrega el titulo del podcast, fuente, palabras nuevas y una reflexion grupal sobre IA.",
+  "Visual Work": "Trabajo visual",
+  "Infographics, banners, posters, and team visuals about artificial intelligence.": "Infografias, banners, posters y recursos visuales del equipo sobre inteligencia artificial.",
+  "Artificial intelligence banner": "Banner de inteligencia artificial",
+  "Artificial Intelligence Banner": "Banner de inteligencia artificial",
+  "Infographic": "Infografia",
+  "AI Vocabulary Infographic": "Infografia de vocabulario de IA",
+  "Poster": "Poster",
+  "Responsible AI Poster": "Poster de IA responsable",
+  "Team": "Equipo",
+  "Learning Tools": "Herramientas de aprendizaje",
+  "Dictionaries, videos, web pages, and digital tools for English and AI topics.": "Diccionarios, videos, paginas web y herramientas digitales para ingles y temas de IA.",
+  "Definitions, pronunciation, and examples.": "Definiciones, pronunciacion y ejemplos.",
+  "English learner definitions and grammar support.": "Definiciones para estudiantes de ingles y apoyo gramatical.",
+  "Practice activities for English learners.": "Actividades de practica para estudiantes de ingles.",
+  "Digital tool for banners, posters, and infographics.": "Herramienta digital para banners, posters e infografias.",
+  "Introductory resources about artificial intelligence.": "Recursos introductorios sobre inteligencia artificial.",
+  "Bibliography": "Bibliografia",
+  "Bibliography used during the semester.": "Bibliografia utilizada durante el semestre.",
+  "References List": "Lista de referencias",
+  "Add your articles, videos, podcasts, and class materials here.": "Agrega aqui tus articulos, videos, podcasts y materiales de clase.",
+  "Technology brings ideas closer to reality.": "La tecnologia acerca las ideas a la realidad.",
+  "Vocabulary grows through practice.": "El vocabulario crece con la practica.",
+  "Grammar gives structure to ideas.": "La gramatica da estructura a las ideas.",
+  "Reading builds technical understanding.": "La lectura construye comprension tecnica.",
+  "Listening improves fluency and pronunciation.": "La escucha mejora la fluidez y la pronunciacion.",
+  "Speaking turns knowledge into communication.": "Hablar convierte el conocimiento en comunicacion.",
+  "Writing organizes thought.": "La escritura organiza el pensamiento.",
+  "Visuals make learning memorable.": "Los recursos visuales hacen memorable el aprendizaje.",
+  "Good resources support independent learning.": "Los buenos recursos apoyan el aprendizaje independiente.",
+  "References keep academic work transparent.": "Las referencias hacen transparente el trabajo academico.",
+  "“The best way to predict the future is to invent it.” - Alan Kay": "\"La mejor manera de predecir el futuro es inventarlo.\" - Alan Kay"
+};
+
+const originalText = new WeakMap();
+const originalAttributes = new WeakMap();
+let originalTitle = document.title;
+
+function walkTextNodes(root, callback) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
+      if (["SCRIPT", "STYLE"].includes(node.parentElement?.tagName)) return NodeFilter.FILTER_REJECT;
+      if (node.parentElement?.closest(".site-header")) return NodeFilter.FILTER_REJECT;
+      if (node.parentElement?.closest(".person-profile")) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(callback);
+}
+
+function applyTranslatedAttributes(lang) {
+  document.querySelectorAll("[placeholder], [alt], [aria-label], [title]").forEach((element) => {
+    if (!originalAttributes.has(element)) {
+      originalAttributes.set(element, {
+        placeholder: element.getAttribute("placeholder"),
+        alt: element.getAttribute("alt"),
+        ariaLabel: element.getAttribute("aria-label"),
+        title: element.getAttribute("title")
+      });
+    }
+
+    const originals = originalAttributes.get(element);
+    [
+      ["placeholder", "placeholder"],
+      ["alt", "alt"],
+      ["ariaLabel", "aria-label"],
+      ["title", "title"]
+    ].forEach(([key, attribute]) => {
+      const original = originals[key];
+      if (!original) return;
+      if (lang === "es" && spanishText[original]) {
+        element.setAttribute(attribute, spanishText[original]);
+      } else if (lang === "en") {
+        element.setAttribute(attribute, original);
+      }
+    });
+  });
+}
+
+function applyLanguage(lang) {
+  document.documentElement.lang = lang === "es" ? "es" : "en";
+  document.title = lang === "es" && spanishText[originalTitle] ? spanishText[originalTitle] : originalTitle;
+  document.querySelectorAll(".site-nav a").forEach((link) => {
+    const match = navLinks.find(([href]) => href === link.getAttribute("href"));
+    if (match) link.textContent = lang === "es" ? match[2] : match[1];
+  });
+
+  const brandTitle = document.querySelector(".brand strong");
+  const brandSubtitle = document.querySelector(".brand small");
+  if (brandTitle) brandTitle.textContent = lang === "es" ? "IA GPT" : "AI GPT";
+  if (brandSubtitle) brandSubtitle.textContent = lang === "es" ? "Hub de Ingles en Equipo" : "English Team Hub";
+
+  walkTextNodes(document.body, (node) => {
+    if (!originalText.has(node)) originalText.set(node, node.textContent);
+    const original = originalText.get(node);
+    const trimmed = original.trim();
+    if (lang === "es" && spanishText[trimmed]) {
+      node.textContent = original.replace(trimmed, spanishText[trimmed]);
+    } else if (lang === "en") {
+      node.textContent = original;
+    }
+  });
+
+  applyTranslatedAttributes(lang);
+
+  const button = document.querySelector(".translate-toggle");
+  if (button) {
+    button.dataset.lang = lang;
+    button.textContent = lang === "es" ? "EN" : "ES";
+    button.setAttribute("aria-label", lang === "es" ? "Traducir pagina al ingles" : "Translate page to Spanish");
+  }
+
+  renderPersonProfile(lang);
+}
+
+function initTranslation() {
+  const urlLang = new URLSearchParams(window.location.search).get("lang");
+  const saved = urlLang === "es" || urlLang === "en" ? urlLang : localStorage.getItem("siteLanguage") || "en";
+  const button = document.querySelector(".translate-toggle");
+  if (!button) return;
+
+  button.addEventListener("click", () => {
+    const nextLang = button.dataset.lang === "es" ? "en" : "es";
+    localStorage.setItem("siteLanguage", nextLang);
+    applyLanguage(nextLang);
+  });
+
+  applyLanguage(saved);
+}
+
+buildHeader();
+setActiveLink();
+initMenu();
+initGlossarySearch();
+initAccordions();
+initPersonSelector();
+initTranslation();
