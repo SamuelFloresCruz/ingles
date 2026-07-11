@@ -1,6 +1,6 @@
 const navLinks = [
   ["index.html", "Home", "Inicio"],
-  ["about.html", "About Me", "Sobre mi"],
+  ["about.html", "About Us", "Sobre nosotros"],
   ["future-technologies.html", "AI Technologies", "Tecnologias de IA"],
   ["tech-vocabulary.html", "AI Vocabulary", "Vocabulario de IA"],
   ["grammar-corner.html", "Grammar Corner", "Gramatica"],
@@ -74,6 +74,11 @@ function initAccordions() {
 const people = {
   samuel: {
     initials: "SF",
+    image: "assets/images/samuel-avatar.png",
+    imageAlt: {
+      en: "Animated portrait of Samuel Flores Cruz",
+      es: "Retrato animado de Samuel Flores Cruz"
+    },
     en: {
       name: "Samuel Flores Cruz",
       career: "Systems Engineering",
@@ -97,48 +102,51 @@ const people = {
   },
   rodrigo: {
     initials: "RH",
+    image: "assets/images/Rodrigo-Foto.jpeg",
+    fallbackImage: "assets/images/rodrigo-avatar.png",
+    imageAlt: {
+      en: "Photo of Rodrigo Heredia Morante",
+      es: "Foto de Rodrigo Heredia Morante"
+    },
     en: {
       name: "Rodrigo Heredia Morante",
       career: "Systems Engineering",
       course: "English Technical II",
-      interest: "Artificial intelligence for automation and decision making.",
-      bioTitle: "Autobiography",
-      bioOne: "My name is Rodrigo Heredia Morante. I am a Systems Engineering student, and I am interested in how artificial intelligence can automate tasks, analyze data, and support better decisions.",
-      bioTwo: "English is important for my professional development because programming documentation, AI research, and international technology communities usually use English.",
-      bioThree: "Through this portfolio, I want to show my progress in English while connecting grammar, vocabulary, reading, listening, speaking, and writing with artificial intelligence."
+      interest: "Technology, programming, and artificial intelligence for solving practical problems.",
+      bioTitle: "My Professional Autobiography",
+      bioOne: "My name is Rodrigo Heredia Morante. I am 22 years old, and I was born on February 19 in Bolivia. I am currently studying Systems Engineering because I enjoy technology, innovation, and solving problems through computers and software.\n\nI am a responsible, hardworking, and motivated person. I always try to learn new skills and improve my knowledge. I like working both independently and as part of a team, and I believe that communication and responsibility are important for achieving good results.\n\nMy goal is to become a successful systems engineer and contribute to the development of technological solutions that help people and businesses. I am especially interested in programming, robotics, and new technologies.\n\nIn my free time, I enjoy exercising, playing video games, and learning about technology. These activities help me stay motivated and continue developing my skills.\n\nI believe that learning English is essential for my professional future because it allows me to communicate with people from different countries, access international information, and create better career opportunities. I am excited to continue improving my English and achieving my academic and professional goals."
     },
     es: {
       name: "Rodrigo Heredia Morante",
       career: "Ingenieria de Sistemas",
       course: "Ingles Tecnico II",
-      interest: "Inteligencia artificial para automatizacion y toma de decisiones.",
-      bioTitle: "Autobiografia",
-      bioOne: "Mi nombre es Rodrigo Heredia Morante. Soy estudiante de Ingenieria de Sistemas y me interesa como la inteligencia artificial puede automatizar tareas, analizar datos y apoyar mejores decisiones.",
-      bioTwo: "El ingles es importante para mi desarrollo profesional porque la documentacion de programacion, la investigacion sobre IA y las comunidades internacionales de tecnologia normalmente usan ingles.",
-      bioThree: "Mediante este portafolio quiero mostrar mi progreso en ingles conectando gramatica, vocabulario, lectura, escucha, speaking y escritura con la inteligencia artificial."
+      interest: "Tecnologia, programacion e inteligencia artificial para resolver problemas practicos.",
+      bioTitle: "Mi autobiografia profesional",
+      bioOne: "Mi nombre es Rodrigo Heredia Morante. Tengo 22 anos y naci el 19 de febrero en Bolivia. Actualmente estudio Ingenieria de Sistemas porque disfruto la tecnologia, la innovacion y resolver problemas mediante computadoras y software.\n\nSoy una persona responsable, trabajadora y motivada. Siempre trato de aprender nuevas habilidades y mejorar mis conocimientos. Me gusta trabajar tanto de manera independiente como en equipo, y creo que la comunicacion y la responsabilidad son importantes para lograr buenos resultados.\n\nMi objetivo es convertirme en un ingeniero de sistemas exitoso y contribuir al desarrollo de soluciones tecnologicas que ayuden a las personas y a las empresas. Estoy especialmente interesado en la programacion, la robotica y las nuevas tecnologias.\n\nEn mi tiempo libre disfruto hacer ejercicio, jugar videojuegos y aprender sobre tecnologia. Estas actividades me ayudan a mantenerme motivado y a seguir desarrollando mis habilidades.\n\nCreo que aprender ingles es esencial para mi futuro profesional porque me permite comunicarme con personas de diferentes paises, acceder a informacion internacional y crear mejores oportunidades laborales. Estoy emocionado por seguir mejorando mi ingles y alcanzar mis metas academicas y profesionales."
     }
   },
   michel: {
     initials: "MO",
+    image: "assets/images/michel-avatar.png",
+    imageAlt: {
+      en: "Animated portrait of Michel Daniel Oporto Valencia",
+      es: "Retrato animado de Michel Daniel Oporto Valencia"
+    },
     en: {
       name: "Michel Daniel Oporto Valencia",
       career: "Systems Engineering",
       course: "English Technical II",
-      interest: "Artificial intelligence for innovation and problem solving.",
+      interest: "Electronics, technology, video games, and learning through the internet.",
       bioTitle: "Autobiography",
-      bioOne: "My name is Michel Daniel Oporto Valencia. I study Systems Engineering and I am interested in artificial intelligence because it offers new ways to create solutions for real problems.",
-      bioTwo: "Learning English helps me access technical information, understand AI tools, watch tutorials, and participate in academic and professional environments.",
-      bioThree: "This portfolio presents my English activities and my reflections about how artificial intelligence can influence education, work, and society."
+      bioOne: "Hello, my name is Mitchel Daniel Oporto Valencia. I was born on February 22, 2006, in Cochabamba. I have two brothers and one sister: I have a younger brother who is currently in school, an older brother who is studying Systems Engineering at UPDS, and an older sister who works at an institute as an English tutor.\n\nMy family and I are always connected online; we often chat in our Telegram group. We all love and take great care of our little cat, Daysi, and on rare occasions, we spend time together playing in a Minecraft world.\n\nAt school, I participated in a singing contest. I enjoyed my Mathematics class, I became friends with many teachers, and there were very few times when I didn't turn in my homework.\n\nMy hobbies include browsing the internet, playing video games, looking at circuit diagrams online to learn more, visiting classmates from the institute where I studied Electronics, and occasionally solving Rubik's cubes."
     },
     es: {
       name: "Michel Daniel Oporto Valencia",
       career: "Ingenieria de Sistemas",
       course: "Ingles Tecnico II",
-      interest: "Inteligencia artificial para innovacion y solucion de problemas.",
+      interest: "Electronica, tecnologia, videojuegos y aprendizaje mediante internet.",
       bioTitle: "Autobiografia",
-      bioOne: "Mi nombre es Michel Daniel Oporto Valencia. Estudio Ingenieria de Sistemas y me interesa la inteligencia artificial porque ofrece nuevas formas de crear soluciones para problemas reales.",
-      bioTwo: "Aprender ingles me ayuda a acceder a informacion tecnica, comprender herramientas de IA, ver tutoriales y participar en entornos academicos y profesionales.",
-      bioThree: "Este portafolio presenta mis actividades de ingles y mis reflexiones sobre como la inteligencia artificial puede influir en la educacion, el trabajo y la sociedad."
+      bioOne: "Hola, mi nombre es Mitchel Daniel Oporto Valencia. Naci el 22 de febrero de 2006 en Cochabamba. Tengo dos hermanos y una hermana: tengo un hermano menor que actualmente esta en el colegio, un hermano mayor que estudia Ingenieria de Sistemas en la UPDS y una hermana mayor que trabaja en un instituto como tutora de ingles.\n\nMi familia y yo siempre estamos conectados en linea; a menudo conversamos en nuestro grupo de Telegram. Todos queremos y cuidamos mucho a nuestra pequena gata, Daysi, y en raras ocasiones pasamos tiempo juntos jugando en un mundo de Minecraft.\n\nEn el colegio participe en un concurso de canto. Disfrutaba mi clase de Matematicas, me hice amigo de muchos profesores y fueron muy pocas las veces en que no entregue mi tarea.\n\nMis pasatiempos incluyen navegar por internet, jugar videojuegos, mirar diagramas de circuitos en linea para aprender mas, visitar a companeros del instituto donde estudie Electronica y, ocasionalmente, resolver cubos de Rubik."
     }
   }
 };
@@ -151,9 +159,14 @@ function getCurrentLanguage() {
   return localStorage.getItem("siteLanguage") || "en";
 }
 
+function isEnglishOnlyPage() {
+  const current = window.location.pathname.split("/").pop() || "index.html";
+  return ["gallery.html", "references.html"].includes(current);
+}
+
 function renderPersonProfile(lang = getCurrentLanguage()) {
-  selectedPerson = "samuel";
-  const profile = people[selectedPerson];
+  const profile = people[selectedPerson] || people.samuel;
+  selectedPerson = people[selectedPerson] ? selectedPerson : "samuel";
   if (!profile) return;
   const englishText = profile.en;
   const translatedText = profile[lang === "es" ? "es" : "en"];
@@ -178,6 +191,17 @@ function renderPersonProfile(lang = getCurrentLanguage()) {
     if (element) element.textContent = value;
   });
 
+  const photo = document.getElementById("personPhoto");
+  if (photo) {
+    photo.onerror = () => {
+      if (profile.fallbackImage && photo.src !== profile.fallbackImage) {
+        photo.src = profile.fallbackImage;
+      }
+    };
+    photo.src = profile.image;
+    photo.alt = profile.imageAlt?.[lang === "es" ? "es" : "en"] || text.name;
+  }
+
   document.querySelectorAll(".person-button").forEach((button) => {
     button.classList.toggle("active", button.dataset.person === selectedPerson);
   });
@@ -201,6 +225,8 @@ function initPersonSelector() {
 const spanishText = {
   "Home": "Inicio",
   "About Me": "Sobre mi",
+  "About Us": "Sobre nosotros",
+  "Our Team": "Nuestro equipo",
   "AI Technologies": "Tecnologias de IA",
   "AI Vocabulary": "Vocabulario de IA",
   "Grammar Corner": "Gramatica",
@@ -260,6 +286,7 @@ const spanishText = {
   "Tech Vocabulary": "Vocabulario tecnico",
   "ARTIFICIAL INTELLIGENCE | Home": "INTELIGENCIA ARTIFICIAL | Inicio",
   "AI GPT | About Me": "IA GPT | Sobre mi",
+  "AI GPT | About Us": "IA GPT | Sobre nosotros",
   "AI GPT | AI Technologies": "IA GPT | Tecnologias de IA",
   "AI GPT | AI Vocabulary": "IA GPT | Vocabulario de IA",
   "AI GPT | Grammar Corner": "IA GPT | Gramatica",
@@ -276,6 +303,11 @@ const spanishText = {
   "Open navigation": "Abrir navegacion",
   "Main navigation": "Navegacion principal",
   "About Me": "Sobre mi",
+  "Meet our three-member team and read each member's autobiography for the English Technical II portfolio.": "Conoce a nuestro grupo de tres integrantes y lee la autobiografia de cada miembro para el portafolio de Ingles Tecnico II.",
+  "We are a group of three students": "Somos un grupo de tres estudiantes",
+  "We are Samuel Flores Cruz, Rodrigo Heredia Morante, and Michel Daniel Oporto Valencia. Together, we created this digital portfolio to practice English, share our personal stories, and connect our learning with technology and artificial intelligence.": "Somos Samuel Flores Cruz, Rodrigo Heredia Morante y Michel Daniel Oporto Valencia. Juntos creamos este portafolio digital para practicar ingles, compartir nuestras historias personales y conectar nuestro aprendizaje con la tecnologia y la inteligencia artificial.",
+  "Select a Member": "Selecciona un integrante",
+  "Select a member": "Selecciona un integrante",
   "Activity 1": "Actividad 1",
   "Read Samuel's autobiography for the English Technical II portfolio.": "Lee la autobiografia de Samuel para el portafolio de Ingles Tecnico II.",
   "Autobiography": "Autobiografia",
@@ -283,6 +315,7 @@ const spanishText = {
   "I am learning English because it is important for my academic and professional future. Many AI documents, tutorials, programming resources, and international projects use English, so improving this skill helps me become a better student and future professional.": "Estoy aprendiendo ingles porque es importante para mi futuro academico y profesional. Muchos documentos de IA, tutoriales, recursos de programacion y proyectos internacionales usan ingles, por eso mejorar esta habilidad me ayuda a ser mejor estudiante y futuro profesional.",
   "In this portfolio, I will publish my activities, vocabulary, grammar practice, readings, multimedia resources, and reflections. My goal is to show my progress during the semester and connect English with artificial intelligence.": "En este portafolio publicare mis actividades, vocabulario, practica de gramatica, lecturas, recursos multimedia y reflexiones. Mi objetivo es mostrar mi progreso durante el semestre y conectar el ingles con la inteligencia artificial.",
   "Personal Photo": "Foto personal",
+  "Personal photo": "Foto personal",
   "Photo space": "Espacio para foto",
   "Place your photo here manually when ready.": "Coloca tu foto aqui manualmente cuando este lista.",
   "Add photo": "Agregar foto",
@@ -329,15 +362,40 @@ const spanishText = {
   "Key grammar topics with rules and artificial intelligence examples.": "Temas clave de gramatica con reglas y ejemplos de inteligencia artificial.",
   "Future Simple": "Futuro Simple",
   "Structure:": "Estructura:",
+  "Examples:": "Ejemplos:",
+  "will + base verb.": "will + verbo base.",
   "will + base verb. Example: AI will transform many professions.": "will + verbo base. Ejemplo: La IA transformara muchas profesiones.",
+  "Artificial intelligence will become a normal part of manufacturing, banking, retail, and transportation.": "La inteligencia artificial se convertira en una parte normal de la manufactura, la banca, el comercio minorista y el transporte.",
+  "Companies will use AI for supply chains, customer service, and healthcare diagnostics.": "Las empresas usaran la IA para cadenas de suministro, atencion al cliente y diagnosticos de salud.",
+  "The software segment will hold almost 45% of the AI market by 2026.": "El segmento de software tendra casi el 45% del mercado de IA para 2026.",
+  "New processors will become faster and more efficient in the next few years.": "Los nuevos procesadores seran mas rapidos y eficientes en los proximos anos.",
+  "Systems engineers will design and maintain digital infrastructure with AI tools.": "Los ingenieros de sistemas disenaran y mantendran infraestructura digital con herramientas de IA.",
   "Going To": "Going To",
   "Grammar": "Gramatica",
+  "am/is/are going to + verb.": "am/is/are going to + verbo.",
   "am/is/are going to + verb. Example: We are going to create an AI presentation.": "am/is/are going to + verbo. Ejemplo: Vamos a crear una presentacion sobre IA.",
+  "The global AI market is going to grow from about $539 billion in 2026 to more than $3 trillion by 2033.": "El mercado global de IA va a crecer de aproximadamente 539 mil millones de dolares en 2026 a mas de 3 billones de dolares para 2033.",
+  "Data center power consumption is going to nearly double by 2030.": "El consumo de energia de los centros de datos casi se va a duplicar para 2030.",
+  "Hardware companies are going to invest heavily in energy planning.": "Las empresas de hardware van a invertir mucho en planificacion energetica.",
+  "Cloud providers are going to improve chip design and infrastructure efficiency.": "Los proveedores de nube van a mejorar el diseno de chips y la eficiencia de la infraestructura.",
+  "AI is going to change how engineers create and maintain digital systems.": "La IA va a cambiar la forma en que los ingenieros crean y mantienen sistemas digitales.",
   "Modal Verbs": "Verbos Modales",
   "Use:": "Uso:",
+  "can, should, must, may.": "can, should, must, may.",
   "can, should, must, may. Example: Developers must use AI responsibly.": "can, should, must, may. Ejemplo: Los desarrolladores deben usar la IA responsablemente.",
+  "AI can recognize images and make decisions using algorithms and machine learning.": "La IA puede reconocer imagenes y tomar decisiones usando algoritmos y aprendizaje automatico.",
+  "Companies should use AI responsibly in customer service and healthcare diagnostics.": "Las empresas deberian usar la IA responsablemente en atencion al cliente y diagnosticos de salud.",
+  "Data centers must manage electricity consumption carefully as AI grows.": "Los centros de datos deben gestionar cuidadosamente el consumo de electricidad a medida que crece la IA.",
+  "New processors may help AI systems become faster and more efficient.": "Los nuevos procesadores pueden ayudar a que los sistemas de IA sean mas rapidos y eficientes.",
+  "Systems engineers should understand both software and hardware requirements for AI.": "Los ingenieros de sistemas deberian comprender los requisitos de software y hardware para la IA.",
   "Present Perfect": "Presente Perfecto",
+  "have/has + past participle.": "have/has + participio pasado.",
   "have/has + past participle. Example: AI has changed digital communication.": "have/has + participio pasado. Ejemplo: La IA ha cambiado la comunicacion digital.",
+  "Artificial intelligence has changed how companies analyze information.": "La inteligencia artificial ha cambiado la forma en que las empresas analizan informacion.",
+  "Machine learning has helped software copy some aspects of human thinking.": "El aprendizaje automatico ha ayudado al software a copiar algunos aspectos del pensamiento humano.",
+  "The demand for GPUs and TPUs has increased because AI needs powerful hardware.": "La demanda de GPUs y TPUs ha aumentado porque la IA necesita hardware potente.",
+  "Cloud providers have invested in data centers to support AI services.": "Los proveedores de nube han invertido en centros de datos para apoyar servicios de IA.",
+  "AI has become an important tool for healthcare, retail, banking, and transportation.": "La IA se ha convertido en una herramienta importante para la salud, el comercio minorista, la banca y el transporte.",
   "Passive Voice": "Voz Pasiva",
   "be + past participle. Example: Data is processed by an AI model.": "be + participio pasado. Ejemplo: Los datos son procesados por un modelo de IA.",
   "Articles": "Articulos",
@@ -425,6 +483,7 @@ function walkTextNodes(root, callback) {
       if (["SCRIPT", "STYLE"].includes(node.parentElement?.tagName)) return NodeFilter.FILTER_REJECT;
       if (node.parentElement?.closest(".site-header")) return NodeFilter.FILTER_REJECT;
       if (node.parentElement?.closest(".person-profile")) return NodeFilter.FILTER_REJECT;
+      if (node.parentElement?.closest(".example-list")) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }
   });
@@ -504,6 +563,12 @@ function initTranslation() {
   const saved = urlLang === "es" || urlLang === "en" ? urlLang : localStorage.getItem("siteLanguage") || "en";
   const button = document.querySelector(".translate-toggle");
   if (!button) return;
+
+  if (isEnglishOnlyPage()) {
+    document.documentElement.lang = "en";
+    button.hidden = true;
+    return;
+  }
 
   button.addEventListener("click", () => {
     const nextLang = button.dataset.lang === "es" ? "en" : "es";
