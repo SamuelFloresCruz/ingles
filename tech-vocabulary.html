@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260715-vocab-atomic">
-  <script defer src="script.js?v=20260715-vocab-atomic"></script>
+  <link rel="stylesheet" href="styles.css?v=20260715-vocab-heap-data">
+  <script defer src="script.js?v=20260715-vocab-heap-data"></script>
 </head>
 <body>
   <header class="site-header"></header>
@@ -40,12 +40,14 @@
           <button class="vocab-modal-close" type="button" aria-label="Close vocabulary detail" data-close-vocab>&times;</button>
           <div class="vocab-modal-layout">
             <figure class="vocab-modal-media">
+              <figcaption class="vocab-modal-visual-title">
+                <span class="vocab-modal-number" id="vocabModalNumber"></span>
+                <strong id="vocabModalTitle"></strong>
+                <small id="vocabModalSubtitle"></small>
+              </figcaption>
               <img id="vocabModalImage" alt="">
             </figure>
             <div class="vocab-modal-content">
-              <p class="vocab-modal-number" id="vocabModalNumber"></p>
-              <h2 id="vocabModalTitle"></h2>
-              <p class="vocab-modal-subtitle" id="vocabModalSubtitle"></p>
               <div class="vocab-modal-grid">
                 <section>
                   <span>Meaning / Significado</span>

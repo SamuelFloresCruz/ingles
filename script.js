@@ -125,11 +125,11 @@ const vocabularyItems = [
   {
     number: "13",
     word: "Heap",
-    meaningEs: "Monticulo",
-    definitionEn: "A specialized tree-based data structure that satisfies the heap property, commonly used to implement priority queues.",
-    definitionEs: "Estructura de datos especializada basada en arboles que cumple la propiedad de monticulo, usada para implementar colas de prioridad.",
-    exampleEn: "Complex solutions may involve the use of structures like heaps.",
-    exampleEs: "Las soluciones complejas pueden implicar el uso de estructuras como los monticulos."
+    meaningEs: "Monton",
+    definitionEn: "A region of memory used for dynamic memory allocation, where objects and data are stored during a program's execution. Unlike the stack, data in the heap remains in memory until it is explicitly released by the program or automatically removed by a garbage collector, allowing it to persist for as long as needed.",
+    definitionEs: "Region de memoria utilizada para la asignacion dinamica de memoria, donde se almacenan objetos y datos durante la ejecucion de un programa. A diferencia de la pila (stack), los datos del monton (heap) permanecen en memoria hasta que el programa los libera explicitamente o un recolector de basura los elimina automaticamente, permitiendo que existan durante el tiempo que sea necesario.",
+    exampleEn: "A game creates a new player object and stores it in the heap so it can remain available until the player leaves the game.",
+    exampleEs: "Un videojuego crea un nuevo objeto para representar a un jugador y lo almacena en el monton (heap) para que permanezca disponible hasta que el jugador salga del juego."
   },
   {
     number: "14",
@@ -169,12 +169,12 @@ const vocabularyItems = [
   },
   {
     number: "18",
-    word: "Performance",
-    meaningEs: "Rendimiento",
-    definitionEn: "The measure of how well a program or system works, including speed, resource use, and quality of results.",
-    definitionEs: "Medida de que tan bien funciona un programa o sistema, incluyendo velocidad, recursos y calidad de resultados.",
-    exampleEn: "The study compared the performance of ChatGPT-generated code across programming languages.",
-    exampleEs: "El estudio comparo el rendimiento del codigo generado por ChatGPT en diferentes lenguajes."
+    word: "Data",
+    meaningEs: "Datos",
+    definitionEn: "Raw facts, figures, or information that can be collected, stored, processed, and analyzed to produce meaningful insights or support decision-making. Data can be in the form of numbers, text, images, audio, or other types of information.",
+    definitionEs: "Conjunto de hechos, cifras o informacion sin procesar que puede recopilarse, almacenarse, procesarse y analizarse para obtener informacion util o apoyar la toma de decisiones. Los datos pueden presentarse en forma de numeros, texto, imagenes, audio u otros tipos de informacion.",
+    exampleEn: "The application collects user data to generate reports and improve system performance.",
+    exampleEs: "La aplicacion recopila datos de los usuarios para generar informes y mejorar el rendimiento del sistema."
   },
   {
     number: "19",
@@ -352,28 +352,59 @@ function initVocabularyExplorer() {
   const exampleEs = document.querySelector("#vocabModalExampleEs");
   let activeCard = null;
 
-  function imageSlug(term) {
-    return term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  function normalizeImageName(value) {
+    return value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
   }
 
-  function setVocabularyImage(term) {
-    if (!image) return;
-    const slug = imageSlug(term);
+  function getVocabularyImageSources(item) {
+    const names = [
+      item.meaningEs,
+      item.meaningEs.toLowerCase(),
+      normalizeImageName(item.meaningEs),
+      item.word,
+      item.word.toLowerCase(),
+      normalizeImageName(item.word)
+    ].filter(Boolean);
+    const uniqueNames = [...new Set(names)];
     const extensions = ["png", "jpg", "jpeg", "webp"];
+
+    const folders = ["assets/images/vocabulary", "assets/vocabulary"];
+
+    return folders.flatMap((folder) =>
+      uniqueNames.flatMap((name) =>
+        extensions.map((extension) => `${folder}/${name}.${extension}`)
+      )
+    );
+  }
+
+  function setVocabularyImage(item) {
+    if (!image) return;
+    const media = image.closest(".vocab-modal-media");
+    const sources = getVocabularyImageSources(item);
     let index = 0;
 
+    media?.classList.remove("has-image");
     image.hidden = false;
-    image.alt = `${term} vocabulary image`;
+    image.alt = `${item.word} / ${item.meaningEs}`;
+    image.onload = () => {
+      media?.classList.add("has-image");
+    };
     image.onerror = () => {
       index += 1;
-      if (index < extensions.length) {
-        image.src = `assets/images/${slug}.${extensions[index]}`;
+      media?.classList.remove("has-image");
+      if (index < sources.length) {
+        image.src = encodeURI(sources[index]);
       } else {
         image.hidden = true;
         image.removeAttribute("src");
       }
     };
-    image.src = `assets/images/${slug}.${extensions[index]}`;
+    image.src = encodeURI(sources[index]);
   }
 
   function renderVocabularyList() {
@@ -428,7 +459,7 @@ function initVocabularyExplorer() {
     if (exampleEn) exampleEn.textContent = item.exampleEn;
     if (exampleEs) exampleEs.textContent = item.exampleEs;
 
-    setVocabularyImage(item.word);
+    setVocabularyImage(item);
     modal.hidden = false;
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
