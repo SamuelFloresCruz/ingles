@@ -1,14 +1,14 @@
 const navLinks = [
   ["index.html", "Home", "Inicio"],
   ["about.html", "About Us", "Sobre nosotros"],
-  ["future-technologies.html", "AI Technologies", "Tecnologias de IA"],
+  ["future-technologies.html", "AI Technologies", "Tecnologías de IA"],
   ["tech-vocabulary.html", "AI Vocabulary", "Vocabulario de IA"],
-  ["grammar-corner.html", "Grammar Corner", "Gramatica"],
+  ["grammar-corner.html", "Grammar Corner", "Gramática"],
   ["reading-corner.html", "Reading Corner", "Lectura"],
   ["listening-corner.html", "Listening Corner", "Escucha"],
-  ["speaking-corner.html", "Speaking Corner", "Expresion oral"],
+  ["speaking-corner.html", "Speaking Corner", "Expresión oral"],
   ["writing-corner.html", "Writing Corner", "Escritura"],
-  ["gallery.html", "Gallery", "Galeria"],
+  ["gallery.html", "Gallery", "Galería"],
   ["resources.html", "Resources", "Recursos"],
   ["references.html", "References", "Referencias"]
 ];
@@ -19,36 +19,36 @@ const vocabularyItems = [
     word: "Algorithm",
     meaningEs: "Algoritmo",
     definitionEn: "A finite sequence of well-defined instructions used to solve a problem or perform a computation.",
-    definitionEs: "Secuencia finita de instrucciones bien definidas utilizada para resolver un problema o realizar un calculo.",
+    definitionEs: "Secuencia finita de instrucciones bien definidas utilizada para resolver un problema o realizar un cálculo.",
     exampleEn: "Hard problems often require advanced algorithms to be solved efficiently.",
-    exampleEs: "Los problemas dificiles a menudo requieren algoritmos avanzados para resolverse de manera eficiente."
+    exampleEs: "Los problemas difíciles a menudo requieren algoritmos avanzados para resolverse de manera eficiente."
   },
   {
     number: "02",
     word: "Reliability",
     meaningEs: "Confiabilidad",
     definitionEn: "The ability of code or a system to work correctly and consistently without unexpected failures.",
-    definitionEs: "Capacidad de un codigo o sistema para funcionar correcta y consistentemente sin fallas inesperadas.",
+    definitionEs: "Capacidad de un código o sistema para funcionar correcta y consistentemente sin fallas inesperadas.",
     exampleEn: "The study evaluated the reliability of ChatGPT-generated solutions in Java and Python.",
-    exampleEs: "El estudio evaluo la confiabilidad de las soluciones generadas por ChatGPT en Java y Python."
+    exampleEs: "El estudio evaluó la confiabilidad de las soluciones generadas por ChatGPT en Java y Python."
   },
   {
     number: "03",
     word: "Optimization",
-    meaningEs: "Optimizacion",
+    meaningEs: "Optimización",
     definitionEn: "The process of improving code so it uses resources more effectively and produces better results.",
-    definitionEs: "Proceso de mejorar codigo para usar recursos de forma mas efectiva y producir mejores resultados.",
+    definitionEs: "Proceso de mejorar código para usar recursos de forma más efectiva y producir mejores resultados.",
     exampleEn: "Compiler optimization can improve generated code when problems become more complex.",
-    exampleEs: "La optimizacion del compilador puede mejorar el codigo generado cuando los problemas se vuelven mas complejos."
+    exampleEs: "La optimización del compilador puede mejorar el código generado cuando los problemas se vuelven más complejos."
   },
   {
     number: "04",
     word: "Complexity",
     meaningEs: "Complejidad",
     definitionEn: "A measure of how difficult a problem is to solve, often classified as easy, medium, or hard.",
-    definitionEs: "Medida de cuan dificil es resolver un problema, clasificada a menudo como facil, media o dificil.",
+    definitionEs: "Medida de cuán difícil es resolver un problema, clasificada a menudo como fácil, media o difícil.",
     exampleEn: "The study analyzed ChatGPT's performance across problems of varying complexity.",
-    exampleEs: "El estudio analizo el rendimiento de ChatGPT en problemas de diferente complejidad."
+    exampleEs: "El estudio analizó el rendimiento de ChatGPT en problemas de diferente complejidad."
   },
   {
     number: "05",
@@ -57,43 +57,43 @@ const vocabularyItems = [
     definitionEn: "The ease with which software can be modified, corrected, or improved over time.",
     definitionEs: "Facilidad con la que un software puede modificarse, corregirse o mejorarse a lo largo del tiempo.",
     exampleEn: "The lack of documentation reduces the maintainability of AI-generated code.",
-    exampleEs: "La falta de documentacion reduce la mantenibilidad del codigo generado por IA."
+    exampleEs: "La falta de documentación reduce la mantenibilidad del código generado por IA."
   },
   {
     number: "06",
     word: "Recursion",
     meaningEs: "Recursividad",
     definitionEn: "A programming technique in which a function calls itself to solve smaller instances of a problem.",
-    definitionEs: "Tecnica de programacion en la que una funcion se llama a si misma para resolver instancias mas pequenas de un problema.",
+    definitionEs: "Técnica de programación en la que una función se llama a sí misma para resolver instancias más pequeñas de un problema.",
     exampleEn: "Solutions to hard problems may involve advanced techniques such as recursion.",
-    exampleEs: "Las soluciones a problemas dificiles pueden implicar tecnicas avanzadas como la recursividad."
+    exampleEs: "Las soluciones a problemas difíciles pueden implicar técnicas avanzadas como la recursividad."
   },
   {
     number: "07",
     word: "Refactoring",
-    meaningEs: "Refactorizacion",
+    meaningEs: "Refactorización",
     definitionEn: "The process of restructuring existing code without changing its external behavior, in order to improve its quality.",
-    definitionEs: "Proceso de reestructurar codigo existente sin cambiar su comportamiento externo, con el fin de mejorar su calidad.",
+    definitionEs: "Proceso de reestructurar código existente sin cambiar su comportamiento externo, con el fin de mejorar su calidad.",
     exampleEn: "ChatGPT was tested on its refactoring capabilities to improve code quality.",
-    exampleEs: "ChatGPT fue evaluado en su capacidad de refactorizacion para mejorar la calidad del codigo."
+    exampleEs: "ChatGPT fue evaluado en su capacidad de refactorización para mejorar la calidad del código."
   },
   {
     number: "08",
     word: "Correctness",
-    meaningEs: "Correccion",
+    meaningEs: "Corrección",
     definitionEn: "The degree to which a program produces the expected and accurate output for given inputs.",
     definitionEs: "Grado en que un programa produce la salida esperada y precisa para determinadas entradas.",
     exampleEn: "The researchers evaluated the correctness of ChatGPT-generated solutions on LeetCode.",
-    exampleEs: "Los investigadores evaluaron la correccion de las soluciones generadas por ChatGPT en LeetCode."
+    exampleEs: "Los investigadores evaluaron la corrección de las soluciones generadas por ChatGPT en LeetCode."
   },
   {
     number: "09",
     word: "Prompt",
-    meaningEs: "Instruccion",
+    meaningEs: "Instrucción",
     definitionEn: "The natural language input given to an AI model to instruct it to generate a specific response or code.",
-    definitionEs: "Entrada en lenguaje natural que se proporciona a un modelo de IA para indicarle que genere una respuesta o codigo especifico.",
+    definitionEs: "Entrada en lenguaje natural que se proporciona a un modelo de IA para indicarle que genere una respuesta o código específico.",
     exampleEn: "A sample prompt structure was used to generate Java code for each LeetCode problem.",
-    exampleEs: "Se utilizo una estructura de instruccion de ejemplo para generar codigo Java para cada problema de LeetCode."
+    exampleEs: "Se utilizó una estructura de instrucción de ejemplo para generar código Java para cada problema de LeetCode."
   },
   {
     number: "10",
@@ -102,16 +102,16 @@ const vocabularyItems = [
     definitionEn: "A linear data structure that follows the First-In-First-Out (FIFO) principle for adding and removing elements.",
     definitionEs: "Estructura de datos lineal que sigue el principio de primero en entrar, primero en salir (FIFO).",
     exampleEn: "The dataset included easy, medium, and hard problems involving queues.",
-    exampleEs: "El conjunto de datos incluyo problemas faciles, medios y dificiles relacionados con colas."
+    exampleEs: "El conjunto de datos incluyó problemas fáciles, medios y difíciles relacionados con colas."
   },
   {
     number: "11",
     word: "Stack",
     meaningEs: "Pila",
     definitionEn: "A linear data structure that follows the Last-In-First-Out (LIFO) principle for adding and removing elements.",
-    definitionEs: "Estructura de datos lineal que sigue el principio de ultimo en entrar, primero en salir (LIFO).",
+    definitionEs: "Estructura de datos lineal que sigue el principio de último en entrar, primero en salir (LIFO).",
     exampleEn: "Easy problems often involve manipulating well-known structures like stacks.",
-    exampleEs: "Los problemas faciles a menudo implican manipular estructuras conocidas como las pilas."
+    exampleEs: "Los problemas fáciles a menudo implican manipular estructuras conocidas como las pilas."
   },
   {
     number: "12",
@@ -120,41 +120,41 @@ const vocabularyItems = [
     definitionEn: "A data structure consisting of nodes connected by edges, used to represent relationships between objects.",
     definitionEs: "Estructura de datos formada por nodos conectados por aristas, utilizada para representar relaciones entre objetos.",
     exampleEn: "Medium problems often involve working with graphs and trees.",
-    exampleEs: "Los problemas de dificultad media a menudo implican trabajar con grafos y arboles."
+    exampleEs: "Los problemas de dificultad media a menudo implican trabajar con grafos y árboles."
   },
   {
     number: "13",
     word: "Heap",
-    meaningEs: "Monton",
+    meaningEs: "Montón",
     definitionEn: "A region of memory used for dynamic memory allocation, where objects and data are stored during a program's execution. Unlike the stack, data in the heap remains in memory until it is explicitly released by the program or automatically removed by a garbage collector, allowing it to persist for as long as needed.",
-    definitionEs: "Region de memoria utilizada para la asignacion dinamica de memoria, donde se almacenan objetos y datos durante la ejecucion de un programa. A diferencia de la pila (stack), los datos del monton (heap) permanecen en memoria hasta que el programa los libera explicitamente o un recolector de basura los elimina automaticamente, permitiendo que existan durante el tiempo que sea necesario.",
+    definitionEs: "Región de memoria utilizada para la asignación dinámica de memoria, donde se almacenan objetos y datos durante la ejecución de un programa. A diferencia de la pila (stack), los datos del montón (heap) permanecen en memoria hasta que el programa los libera explícitamente o un recolector de basura los elimina automáticamente, permitiendo que existan durante el tiempo que sea necesario.",
     exampleEn: "A game creates a new player object and stores it in the heap so it can remain available until the player leaves the game.",
-    exampleEs: "Un videojuego crea un nuevo objeto para representar a un jugador y lo almacena en el monton (heap) para que permanezca disponible hasta que el jugador salga del juego."
+    exampleEs: "Un videojuego crea un nuevo objeto para representar a un jugador y lo almacena en el montón (heap) para que permanezca disponible hasta que el jugador salga del juego."
   },
   {
     number: "14",
     word: "Hash",
     meaningEs: "Hash",
     definitionEn: "A data structure or function that maps keys to values for highly efficient lookup and storage.",
-    definitionEs: "Estructura o funcion de datos que asocia claves con valores para una busqueda y almacenamiento muy eficientes.",
+    definitionEs: "Estructura o función de datos que asocia claves con valores para una búsqueda y almacenamiento muy eficientes.",
     exampleEn: "The first testing category included problems involving hash tables.",
-    exampleEs: "La primera categoria de pruebas incluyo problemas relacionados con tablas hash."
+    exampleEs: "La primera categoría de pruebas incluyó problemas relacionados con tablas hash."
   },
   {
     number: "15",
     word: "Vulnerability",
     meaningEs: "Vulnerabilidad",
     definitionEn: "A weakness in code or a system that could be exploited to compromise its security.",
-    definitionEs: "Debilidad en el codigo o en un sistema que podria explotarse para comprometer su seguridad.",
+    definitionEs: "Debilidad en el código o en un sistema que podría explotarse para comprometer su seguridad.",
     exampleEn: "The study by Khoury et al. highlighted specific security vulnerabilities in generated code.",
-    exampleEs: "El estudio de Khoury et al. destaco vulnerabilidades de seguridad especificas en el codigo generado."
+    exampleEs: "El estudio de Khoury et al. destacó vulnerabilidades de seguridad específicas en el código generado."
   },
   {
     number: "16",
     word: "Transformer",
     meaningEs: "Transformador",
     definitionEn: "A deep learning architecture that processes sequential data using attention mechanisms, forming the basis of most modern LLMs.",
-    definitionEs: "Arquitectura de aprendizaje profundo que procesa datos secuenciales mediante mecanismos de atencion, base de la mayoria de los LLM modernos.",
+    definitionEs: "Arquitectura de aprendizaje profundo que procesa datos secuenciales mediante mecanismos de atención, base de la mayoría de los LLM modernos.",
     exampleEn: "The architecture of LLMs is often based on transformer models.",
     exampleEs: "La arquitectura de los LLM suele basarse en modelos transformadores."
   },
@@ -165,7 +165,7 @@ const vocabularyItems = [
     definitionEn: "A unit of text, such as a word or subword, that a language model processes or predicts one at a time.",
     definitionEs: "Unidad de texto, como una palabra o subpalabra, que un modelo de lenguaje procesa o predice de una en una.",
     exampleEn: "Codex is designed to predict the next token in a sequence when generating code.",
-    exampleEs: "Codex esta disenado para predecir el siguiente token en una secuencia al generar codigo."
+    exampleEs: "Codex está diseñado para predecir el siguiente token en una secuencia al generar código."
   },
   {
     number: "18",
@@ -173,72 +173,72 @@ const vocabularyItems = [
     meaningEs: "Datos",
     imageAliases: ["Conjunto"],
     definitionEn: "Raw facts, figures, or information that can be collected, stored, processed, and analyzed to produce meaningful insights or support decision-making. Data can be in the form of numbers, text, images, audio, or other types of information.",
-    definitionEs: "Conjunto de hechos, cifras o informacion sin procesar que puede recopilarse, almacenarse, procesarse y analizarse para obtener informacion util o apoyar la toma de decisiones. Los datos pueden presentarse en forma de numeros, texto, imagenes, audio u otros tipos de informacion.",
+    definitionEs: "Conjunto de hechos, cifras o información sin procesar que puede recopilarse, almacenarse, procesarse y analizarse para obtener información útil o apoyar la toma de decisiones. Los datos pueden presentarse en forma de números, texto, imágenes, audio u otros tipos de información.",
     exampleEn: "The application collects user data to generate reports and improve system performance.",
-    exampleEs: "La aplicacion recopila datos de los usuarios para generar informes y mejorar el rendimiento del sistema."
+    exampleEs: "La aplicación recopila datos de los usuarios para generar informes y mejorar el rendimiento del sistema."
   },
   {
     number: "19",
     word: "Compiler",
     meaningEs: "Compilador",
     definitionEn: "A program that translates source code into machine-executable instructions, checking it for syntax errors.",
-    definitionEs: "Programa que traduce el codigo fuente a instrucciones ejecutables por la maquina, verificando errores de sintaxis.",
+    definitionEs: "Programa que traduce el código fuente a instrucciones ejecutables por la máquina, verificando errores de sintaxis.",
     exampleEn: "Compile errors occur during the compiler's translation phase.",
-    exampleEs: "Los errores de compilacion ocurren durante la fase de traduccion del compilador."
+    exampleEs: "Los errores de compilación ocurren durante la fase de traducción del compilador."
   },
   {
     number: "20",
     word: "Syntax",
     meaningEs: "Sintaxis",
     definitionEn: "The set of rules that define the correct structure and form of statements in a programming language.",
-    definitionEs: "Conjunto de reglas que definen la estructura y forma correctas de las instrucciones en un lenguaje de programacion.",
+    definitionEs: "Conjunto de reglas que definen la estructura y forma correctas de las instrucciones en un lenguaje de programación.",
     exampleEn: "Compile errors are typically related to syntax issues or type mismatches.",
-    exampleEs: "Los errores de compilacion suelen estar relacionados con problemas de sintaxis o incompatibilidad de tipos."
+    exampleEs: "Los errores de compilación suelen estar relacionados con problemas de sintaxis o incompatibilidad de tipos."
   },
   {
     number: "21",
     word: "Semantics",
-    meaningEs: "Semantica",
+    meaningEs: "Semántica",
     definitionEn: "The meaning behind the structure of code, describing what a program actually does when it runs.",
-    definitionEs: "Significado detras de la estructura del codigo, que describe lo que realmente hace un programa al ejecutarse.",
+    definitionEs: "Significado detrás de la estructura del código, que describe lo que realmente hace un programa al ejecutarse.",
     exampleEn: "Generated code can be syntactically correct but semantically flawed.",
-    exampleEs: "El codigo generado puede ser sintacticamente correcto pero semanticamente defectuoso."
+    exampleEs: "El código generado puede ser sintácticamente correcto pero semánticamente defectuoso."
   },
   {
     number: "22",
     word: "Variable",
     meaningEs: "Variable",
     definitionEn: "A named storage location in a program that holds a value which can change during execution.",
-    definitionEs: "Ubicacion de almacenamiento con nombre en un programa que contiene un valor que puede cambiar durante la ejecucion.",
+    definitionEs: "Ubicación de almacenamiento con nombre en un programa que contiene un valor que puede cambiar durante la ejecución.",
     exampleEn: "The generated code showed no unused variables in either language.",
-    exampleEs: "El codigo generado no mostro variables no utilizadas en ninguno de los dos lenguajes."
+    exampleEs: "El código generado no mostró variables no utilizadas en ninguno de los dos lenguajes."
   },
   {
     number: "23",
     word: "Loop",
     meaningEs: "Bucle",
     definitionEn: "A control structure that repeats a block of code until a specified condition is met.",
-    definitionEs: "Estructura de control que repite un bloque de codigo hasta que se cumple una condicion determinada.",
+    definitionEs: "Estructura de control que repite un bloque de código hasta que se cumple una condición determinada.",
     exampleEn: "Solutions to array problems often rely on a simple loop to traverse the elements.",
     exampleEs: "Las soluciones a problemas de arreglos suelen depender de un bucle simple para recorrer los elementos."
   },
   {
     number: "24",
     word: "Iteration",
-    meaningEs: "Iteracion",
+    meaningEs: "Iteración",
     definitionEn: "A single repetition of a process, such as one pass through a loop or one step of an algorithm.",
-    definitionEs: "Una sola repeticion de un proceso, como un paso a traves de un bucle o un paso de un algoritmo.",
+    definitionEs: "Una sola repetición de un proceso, como un paso a través de un bucle o un paso de un algoritmo.",
     exampleEn: "After some iteration, ChatGPT-3.5 was able to produce more secure code.",
-    exampleEs: "Tras algunas iteraciones, ChatGPT-3.5 pudo producir codigo mas seguro."
+    exampleEs: "Tras algunas iteraciones, ChatGPT-3.5 pudo producir código más seguro."
   },
   {
     number: "25",
     word: "Debugging",
-    meaningEs: "Depuracion",
+    meaningEs: "Depuración",
     definitionEn: "The process of finding and fixing errors or defects in a computer program.",
     definitionEs: "Proceso de encontrar y corregir errores o defectos en un programa de computadora.",
     exampleEn: "Social media discussions about ChatGPT often covered debugging scenarios.",
-    exampleEs: "Las discusiones en redes sociales sobre ChatGPT a menudo trataban sobre escenarios de depuracion."
+    exampleEs: "Las discusiones en redes sociales sobre ChatGPT a menudo trataban sobre escenarios de depuración."
   },
   {
     number: "26",
@@ -247,16 +247,16 @@ const vocabularyItems = [
     definitionEn: "The process of executing a program to verify that it behaves correctly and meets requirements.",
     definitionEs: "Proceso de ejecutar un programa para verificar que se comporta correctamente y cumple con los requisitos.",
     exampleEn: "LeetCode's integrated testing suite benchmarked solutions against predefined test cases.",
-    exampleEs: "El sistema de pruebas integrado de LeetCode evaluo las soluciones frente a casos de prueba predefinidos."
+    exampleEs: "El sistema de pruebas integrado de LeetCode evaluó las soluciones frente a casos de prueba predefinidos."
   },
   {
     number: "27",
     word: "Security",
     meaningEs: "Seguridad",
     definitionEn: "The protection of a system or code against unauthorized access, damage, or exploitation.",
-    definitionEs: "Proteccion de un sistema o codigo contra el acceso no autorizado, danos o explotacion.",
+    definitionEs: "Protección de un sistema o código contra el acceso no autorizado, daños o explotación.",
     exampleEn: "ChatGPT-3.5 required oversight to ensure secure coding practices.",
-    exampleEs: "ChatGPT-3.5 requirio supervision para garantizar practicas de codificacion seguras."
+    exampleEs: "ChatGPT-3.5 requirió supervisión para garantizar prácticas de codificación seguras."
   },
   {
     number: "28",
@@ -265,7 +265,7 @@ const vocabularyItems = [
     definitionEn: "The ability of a program to handle unexpected inputs or conditions without failing.",
     definitionEs: "Capacidad de un programa para manejar entradas o condiciones inesperadas sin fallar.",
     exampleEn: "The generated code often lacks the robustness needed for real-world deployment.",
-    exampleEs: "El codigo generado a menudo carece de la robustez necesaria para su despliegue en el mundo real."
+    exampleEs: "El código generado a menudo carece de la robustez necesaria para su despliegue en el mundo real."
   },
   {
     number: "29",
@@ -283,7 +283,7 @@ const vocabularyItems = [
     definitionEn: "The ability of a program to achieve its goal while minimizing the use of resources such as time and memory.",
     definitionEs: "Capacidad de un programa para lograr su objetivo minimizando el uso de recursos como el tiempo y la memoria.",
     exampleEn: "Java demonstrated higher runtime efficiency across all difficulty levels.",
-    exampleEs: "Java demostro una mayor eficiencia en tiempo de ejecucion en todos los niveles de dificultad."
+    exampleEs: "Java demostró una mayor eficiencia en tiempo de ejecución en todos los niveles de dificultad."
   }
 ];
 
