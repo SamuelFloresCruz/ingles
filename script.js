@@ -13,6 +13,279 @@ const navLinks = [
   ["references.html", "References", "Referencias"]
 ];
 
+const vocabularyItems = [
+  {
+    number: "01",
+    word: "Algorithm",
+    meaningEs: "Algoritmo",
+    definitionEn: "A finite sequence of well-defined instructions used to solve a problem or perform a computation.",
+    definitionEs: "Secuencia finita de instrucciones bien definidas utilizada para resolver un problema o realizar un calculo.",
+    exampleEn: "Hard problems often require advanced algorithms to be solved efficiently.",
+    exampleEs: "Los problemas dificiles a menudo requieren algoritmos avanzados para resolverse de manera eficiente."
+  },
+  {
+    number: "02",
+    word: "Reliability",
+    meaningEs: "Confiabilidad",
+    definitionEn: "The ability of code or a system to work correctly and consistently without unexpected failures.",
+    definitionEs: "Capacidad de un codigo o sistema para funcionar correcta y consistentemente sin fallas inesperadas.",
+    exampleEn: "The study evaluated the reliability of ChatGPT-generated solutions in Java and Python.",
+    exampleEs: "El estudio evaluo la confiabilidad de las soluciones generadas por ChatGPT en Java y Python."
+  },
+  {
+    number: "03",
+    word: "Optimization",
+    meaningEs: "Optimizacion",
+    definitionEn: "The process of improving code so it uses resources more effectively and produces better results.",
+    definitionEs: "Proceso de mejorar codigo para usar recursos de forma mas efectiva y producir mejores resultados.",
+    exampleEn: "Compiler optimization can improve generated code when problems become more complex.",
+    exampleEs: "La optimizacion del compilador puede mejorar el codigo generado cuando los problemas se vuelven mas complejos."
+  },
+  {
+    number: "04",
+    word: "Complexity",
+    meaningEs: "Complejidad",
+    definitionEn: "A measure of how difficult a problem is to solve, often classified as easy, medium, or hard.",
+    definitionEs: "Medida de cuan dificil es resolver un problema, clasificada a menudo como facil, media o dificil.",
+    exampleEn: "The study analyzed ChatGPT's performance across problems of varying complexity.",
+    exampleEs: "El estudio analizo el rendimiento de ChatGPT en problemas de diferente complejidad."
+  },
+  {
+    number: "05",
+    word: "Maintainability",
+    meaningEs: "Mantenibilidad",
+    definitionEn: "The ease with which software can be modified, corrected, or improved over time.",
+    definitionEs: "Facilidad con la que un software puede modificarse, corregirse o mejorarse a lo largo del tiempo.",
+    exampleEn: "The lack of documentation reduces the maintainability of AI-generated code.",
+    exampleEs: "La falta de documentacion reduce la mantenibilidad del codigo generado por IA."
+  },
+  {
+    number: "06",
+    word: "Recursion",
+    meaningEs: "Recursividad",
+    definitionEn: "A programming technique in which a function calls itself to solve smaller instances of a problem.",
+    definitionEs: "Tecnica de programacion en la que una funcion se llama a si misma para resolver instancias mas pequenas de un problema.",
+    exampleEn: "Solutions to hard problems may involve advanced techniques such as recursion.",
+    exampleEs: "Las soluciones a problemas dificiles pueden implicar tecnicas avanzadas como la recursividad."
+  },
+  {
+    number: "07",
+    word: "Refactoring",
+    meaningEs: "Refactorizacion",
+    definitionEn: "The process of restructuring existing code without changing its external behavior, in order to improve its quality.",
+    definitionEs: "Proceso de reestructurar codigo existente sin cambiar su comportamiento externo, con el fin de mejorar su calidad.",
+    exampleEn: "ChatGPT was tested on its refactoring capabilities to improve code quality.",
+    exampleEs: "ChatGPT fue evaluado en su capacidad de refactorizacion para mejorar la calidad del codigo."
+  },
+  {
+    number: "08",
+    word: "Correctness",
+    meaningEs: "Correccion",
+    definitionEn: "The degree to which a program produces the expected and accurate output for given inputs.",
+    definitionEs: "Grado en que un programa produce la salida esperada y precisa para determinadas entradas.",
+    exampleEn: "The researchers evaluated the correctness of ChatGPT-generated solutions on LeetCode.",
+    exampleEs: "Los investigadores evaluaron la correccion de las soluciones generadas por ChatGPT en LeetCode."
+  },
+  {
+    number: "09",
+    word: "Prompt",
+    meaningEs: "Instruccion",
+    definitionEn: "The natural language input given to an AI model to instruct it to generate a specific response or code.",
+    definitionEs: "Entrada en lenguaje natural que se proporciona a un modelo de IA para indicarle que genere una respuesta o codigo especifico.",
+    exampleEn: "A sample prompt structure was used to generate Java code for each LeetCode problem.",
+    exampleEs: "Se utilizo una estructura de instruccion de ejemplo para generar codigo Java para cada problema de LeetCode."
+  },
+  {
+    number: "10",
+    word: "Queue",
+    meaningEs: "Cola",
+    definitionEn: "A linear data structure that follows the First-In-First-Out (FIFO) principle for adding and removing elements.",
+    definitionEs: "Estructura de datos lineal que sigue el principio de primero en entrar, primero en salir (FIFO).",
+    exampleEn: "The dataset included easy, medium, and hard problems involving queues.",
+    exampleEs: "El conjunto de datos incluyo problemas faciles, medios y dificiles relacionados con colas."
+  },
+  {
+    number: "11",
+    word: "Stack",
+    meaningEs: "Pila",
+    definitionEn: "A linear data structure that follows the Last-In-First-Out (LIFO) principle for adding and removing elements.",
+    definitionEs: "Estructura de datos lineal que sigue el principio de ultimo en entrar, primero en salir (LIFO).",
+    exampleEn: "Easy problems often involve manipulating well-known structures like stacks.",
+    exampleEs: "Los problemas faciles a menudo implican manipular estructuras conocidas como las pilas."
+  },
+  {
+    number: "12",
+    word: "Graph",
+    meaningEs: "Grafo",
+    definitionEn: "A data structure consisting of nodes connected by edges, used to represent relationships between objects.",
+    definitionEs: "Estructura de datos formada por nodos conectados por aristas, utilizada para representar relaciones entre objetos.",
+    exampleEn: "Medium problems often involve working with graphs and trees.",
+    exampleEs: "Los problemas de dificultad media a menudo implican trabajar con grafos y arboles."
+  },
+  {
+    number: "13",
+    word: "Heap",
+    meaningEs: "Monticulo",
+    definitionEn: "A specialized tree-based data structure that satisfies the heap property, commonly used to implement priority queues.",
+    definitionEs: "Estructura de datos especializada basada en arboles que cumple la propiedad de monticulo, usada para implementar colas de prioridad.",
+    exampleEn: "Complex solutions may involve the use of structures like heaps.",
+    exampleEs: "Las soluciones complejas pueden implicar el uso de estructuras como los monticulos."
+  },
+  {
+    number: "14",
+    word: "Hash",
+    meaningEs: "Hash",
+    definitionEn: "A data structure or function that maps keys to values for highly efficient lookup and storage.",
+    definitionEs: "Estructura o funcion de datos que asocia claves con valores para una busqueda y almacenamiento muy eficientes.",
+    exampleEn: "The first testing category included problems involving hash tables.",
+    exampleEs: "La primera categoria de pruebas incluyo problemas relacionados con tablas hash."
+  },
+  {
+    number: "15",
+    word: "Vulnerability",
+    meaningEs: "Vulnerabilidad",
+    definitionEn: "A weakness in code or a system that could be exploited to compromise its security.",
+    definitionEs: "Debilidad en el codigo o en un sistema que podria explotarse para comprometer su seguridad.",
+    exampleEn: "The study by Khoury et al. highlighted specific security vulnerabilities in generated code.",
+    exampleEs: "El estudio de Khoury et al. destaco vulnerabilidades de seguridad especificas en el codigo generado."
+  },
+  {
+    number: "16",
+    word: "Transformer",
+    meaningEs: "Transformador",
+    definitionEn: "A deep learning architecture that processes sequential data using attention mechanisms, forming the basis of most modern LLMs.",
+    definitionEs: "Arquitectura de aprendizaje profundo que procesa datos secuenciales mediante mecanismos de atencion, base de la mayoria de los LLM modernos.",
+    exampleEn: "The architecture of LLMs is often based on transformer models.",
+    exampleEs: "La arquitectura de los LLM suele basarse en modelos transformadores."
+  },
+  {
+    number: "17",
+    word: "Token",
+    meaningEs: "Token",
+    definitionEn: "A unit of text, such as a word or subword, that a language model processes or predicts one at a time.",
+    definitionEs: "Unidad de texto, como una palabra o subpalabra, que un modelo de lenguaje procesa o predice de una en una.",
+    exampleEn: "Codex is designed to predict the next token in a sequence when generating code.",
+    exampleEs: "Codex esta disenado para predecir el siguiente token en una secuencia al generar codigo."
+  },
+  {
+    number: "18",
+    word: "Performance",
+    meaningEs: "Rendimiento",
+    definitionEn: "The measure of how well a program or system works, including speed, resource use, and quality of results.",
+    definitionEs: "Medida de que tan bien funciona un programa o sistema, incluyendo velocidad, recursos y calidad de resultados.",
+    exampleEn: "The study compared the performance of ChatGPT-generated code across programming languages.",
+    exampleEs: "El estudio comparo el rendimiento del codigo generado por ChatGPT en diferentes lenguajes."
+  },
+  {
+    number: "19",
+    word: "Compiler",
+    meaningEs: "Compilador",
+    definitionEn: "A program that translates source code into machine-executable instructions, checking it for syntax errors.",
+    definitionEs: "Programa que traduce el codigo fuente a instrucciones ejecutables por la maquina, verificando errores de sintaxis.",
+    exampleEn: "Compile errors occur during the compiler's translation phase.",
+    exampleEs: "Los errores de compilacion ocurren durante la fase de traduccion del compilador."
+  },
+  {
+    number: "20",
+    word: "Syntax",
+    meaningEs: "Sintaxis",
+    definitionEn: "The set of rules that define the correct structure and form of statements in a programming language.",
+    definitionEs: "Conjunto de reglas que definen la estructura y forma correctas de las instrucciones en un lenguaje de programacion.",
+    exampleEn: "Compile errors are typically related to syntax issues or type mismatches.",
+    exampleEs: "Los errores de compilacion suelen estar relacionados con problemas de sintaxis o incompatibilidad de tipos."
+  },
+  {
+    number: "21",
+    word: "Semantics",
+    meaningEs: "Semantica",
+    definitionEn: "The meaning behind the structure of code, describing what a program actually does when it runs.",
+    definitionEs: "Significado detras de la estructura del codigo, que describe lo que realmente hace un programa al ejecutarse.",
+    exampleEn: "Generated code can be syntactically correct but semantically flawed.",
+    exampleEs: "El codigo generado puede ser sintacticamente correcto pero semanticamente defectuoso."
+  },
+  {
+    number: "22",
+    word: "Variable",
+    meaningEs: "Variable",
+    definitionEn: "A named storage location in a program that holds a value which can change during execution.",
+    definitionEs: "Ubicacion de almacenamiento con nombre en un programa que contiene un valor que puede cambiar durante la ejecucion.",
+    exampleEn: "The generated code showed no unused variables in either language.",
+    exampleEs: "El codigo generado no mostro variables no utilizadas en ninguno de los dos lenguajes."
+  },
+  {
+    number: "23",
+    word: "Loop",
+    meaningEs: "Bucle",
+    definitionEn: "A control structure that repeats a block of code until a specified condition is met.",
+    definitionEs: "Estructura de control que repite un bloque de codigo hasta que se cumple una condicion determinada.",
+    exampleEn: "Solutions to array problems often rely on a simple loop to traverse the elements.",
+    exampleEs: "Las soluciones a problemas de arreglos suelen depender de un bucle simple para recorrer los elementos."
+  },
+  {
+    number: "24",
+    word: "Iteration",
+    meaningEs: "Iteracion",
+    definitionEn: "A single repetition of a process, such as one pass through a loop or one step of an algorithm.",
+    definitionEs: "Una sola repeticion de un proceso, como un paso a traves de un bucle o un paso de un algoritmo.",
+    exampleEn: "After some iteration, ChatGPT-3.5 was able to produce more secure code.",
+    exampleEs: "Tras algunas iteraciones, ChatGPT-3.5 pudo producir codigo mas seguro."
+  },
+  {
+    number: "25",
+    word: "Debugging",
+    meaningEs: "Depuracion",
+    definitionEn: "The process of finding and fixing errors or defects in a computer program.",
+    definitionEs: "Proceso de encontrar y corregir errores o defectos en un programa de computadora.",
+    exampleEn: "Social media discussions about ChatGPT often covered debugging scenarios.",
+    exampleEs: "Las discusiones en redes sociales sobre ChatGPT a menudo trataban sobre escenarios de depuracion."
+  },
+  {
+    number: "26",
+    word: "Testing",
+    meaningEs: "Prueba",
+    definitionEn: "The process of executing a program to verify that it behaves correctly and meets requirements.",
+    definitionEs: "Proceso de ejecutar un programa para verificar que se comporta correctamente y cumple con los requisitos.",
+    exampleEn: "LeetCode's integrated testing suite benchmarked solutions against predefined test cases.",
+    exampleEs: "El sistema de pruebas integrado de LeetCode evaluo las soluciones frente a casos de prueba predefinidos."
+  },
+  {
+    number: "27",
+    word: "Security",
+    meaningEs: "Seguridad",
+    definitionEn: "The protection of a system or code against unauthorized access, damage, or exploitation.",
+    definitionEs: "Proteccion de un sistema o codigo contra el acceso no autorizado, danos o explotacion.",
+    exampleEn: "ChatGPT-3.5 required oversight to ensure secure coding practices.",
+    exampleEs: "ChatGPT-3.5 requirio supervision para garantizar practicas de codificacion seguras."
+  },
+  {
+    number: "28",
+    word: "Robustness",
+    meaningEs: "Robustez",
+    definitionEn: "The ability of a program to handle unexpected inputs or conditions without failing.",
+    definitionEs: "Capacidad de un programa para manejar entradas o condiciones inesperadas sin fallar.",
+    exampleEn: "The generated code often lacks the robustness needed for real-world deployment.",
+    exampleEs: "El codigo generado a menudo carece de la robustez necesaria para su despliegue en el mundo real."
+  },
+  {
+    number: "29",
+    word: "Memory",
+    meaningEs: "Memoria",
+    definitionEn: "The system resource used to store data while a program is running.",
+    definitionEs: "Recurso del sistema utilizado para almacenar datos mientras un programa se ejecuta.",
+    exampleEn: "Python solutions generally consumed less memory than Java.",
+    exampleEs: "Las soluciones en Python generalmente consumieron menos memoria que las de Java."
+  },
+  {
+    number: "30",
+    word: "Efficiency",
+    meaningEs: "Eficiencia",
+    definitionEn: "The ability of a program to achieve its goal while minimizing the use of resources such as time and memory.",
+    definitionEs: "Capacidad de un programa para lograr su objetivo minimizando el uso de recursos como el tiempo y la memoria.",
+    exampleEn: "Java demonstrated higher runtime efficiency across all difficulty levels.",
+    exampleEs: "Java demostro una mayor eficiencia en tiempo de ejecucion en todos los niveles de dificultad."
+  }
+];
+
 function buildHeader() {
   const header = document.querySelector(".site-header");
   if (!header) return;
@@ -60,6 +333,126 @@ function initGlossarySearch() {
       const term = card.dataset.term || "";
       card.hidden = Boolean(query) && !text.includes(query) && !term.includes(query);
     });
+  });
+}
+
+function initVocabularyExplorer() {
+  const modal = document.querySelector("#vocabModal");
+  const list = document.querySelector("#glossary");
+  if (!modal || !list) return;
+
+  const image = document.querySelector("#vocabModalImage");
+  const number = document.querySelector("#vocabModalNumber");
+  const title = document.querySelector("#vocabModalTitle");
+  const subtitle = document.querySelector("#vocabModalSubtitle");
+  const meaning = document.querySelector("#vocabModalMeaning");
+  const definitionEn = document.querySelector("#vocabModalDefinitionEn");
+  const definitionEs = document.querySelector("#vocabModalDefinitionEs");
+  const exampleEn = document.querySelector("#vocabModalExampleEn");
+  const exampleEs = document.querySelector("#vocabModalExampleEs");
+  let activeCard = null;
+
+  function imageSlug(term) {
+    return term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  function setVocabularyImage(term) {
+    if (!image) return;
+    const slug = imageSlug(term);
+    const extensions = ["png", "jpg", "jpeg", "webp"];
+    let index = 0;
+
+    image.hidden = false;
+    image.alt = `${term} vocabulary image`;
+    image.onerror = () => {
+      index += 1;
+      if (index < extensions.length) {
+        image.src = `assets/images/${slug}.${extensions[index]}`;
+      } else {
+        image.hidden = true;
+        image.removeAttribute("src");
+      }
+    };
+    image.src = `assets/images/${slug}.${extensions[index]}`;
+  }
+
+  function renderVocabularyList() {
+    const fragment = document.createDocumentFragment();
+
+    vocabularyItems.forEach((item, index) => {
+      const button = document.createElement("button");
+      const numberSpan = document.createElement("span");
+      const wordSpan = document.createElement("span");
+
+      button.className = "vocab-card";
+      button.type = "button";
+      button.dataset.vocabIndex = String(index);
+      button.dataset.term = [
+        item.word,
+        item.meaningEs,
+        item.definitionEn,
+        item.definitionEs,
+        item.exampleEn,
+        item.exampleEs
+      ].join(" ").toLowerCase();
+      button.setAttribute("aria-label", `Open ${item.word} vocabulary detail`);
+
+      numberSpan.className = "vocab-number";
+      numberSpan.textContent = item.number;
+      wordSpan.className = "vocab-word";
+      wordSpan.textContent = item.word;
+
+      button.append(numberSpan, wordSpan);
+      fragment.appendChild(button);
+    });
+
+    list.replaceChildren(fragment);
+  }
+
+  function closeModal() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+    if (activeCard) activeCard.focus();
+  }
+
+  function openItem(item, card) {
+    activeCard = card;
+    if (number) number.textContent = item.number;
+    if (title) title.textContent = item.word;
+    if (subtitle) subtitle.textContent = item.meaningEs;
+    if (meaning) meaning.textContent = `EN: ${item.word} | ES: ${item.meaningEs}`;
+    if (definitionEn) definitionEn.textContent = item.definitionEn;
+    if (definitionEs) definitionEs.textContent = item.definitionEs;
+    if (exampleEn) exampleEn.textContent = item.exampleEn;
+    if (exampleEs) exampleEs.textContent = item.exampleEs;
+
+    setVocabularyImage(item.word);
+    modal.hidden = false;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    modal.querySelector(".vocab-modal-close")?.focus();
+  }
+
+  renderVocabularyList();
+
+  list.addEventListener("click", (event) => {
+    const card = event.target.closest(".vocab-card");
+    if (!card) return;
+    const item = vocabularyItems[Number(card.dataset.vocabIndex)];
+    if (item) openItem(item, card);
+  });
+
+  modal.querySelectorAll("[data-close-vocab]").forEach((element) => {
+    element.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("open")) {
+      closeModal();
+    }
   });
 }
 
@@ -161,7 +554,7 @@ function getCurrentLanguage() {
 
 function isEnglishOnlyPage() {
   const current = window.location.pathname.split("/").pop() || "index.html";
-  return ["gallery.html", "references.html"].includes(current);
+  return ["gallery.html", "references.html", "tech-vocabulary.html"].includes(current);
 }
 
 function renderPersonProfile(lang = getCurrentLanguage()) {
@@ -582,6 +975,7 @@ function initTranslation() {
 buildHeader();
 setActiveLink();
 initMenu();
+initVocabularyExplorer();
 initGlossarySearch();
 initAccordions();
 initPersonSelector();

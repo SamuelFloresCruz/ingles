@@ -13,9 +13,31 @@
 <body>
   <header class="site-header"></header>
   <main class="page-main">
-    <section class="section content-block">
-      <p>sin contenido</p>
+    <section class="page-hero compact">
+      <div>
+        <p class="eyebrow">Reading</p>
+        <h1>Reading Corner</h1>
+        <p>Case studies and analysis about artificial intelligence in real technical situations.</p>
+      </div>
+    </section>
+    <section class="section content-block reading-article">
+      <p class="eyebrow dark">Artificial Intelligence (AI)</p>
+      <h2>When AI Gives the Wrong Answer</h2>
+      <p>Maria is a systems engineer at an online store. Last week, her company's AI chatbot began giving customers strange, outdated answers. When a customer asked about the return policy, the software suggested rules that ended two years ago. Maria's manager contacted technical support immediately.</p>
+      <p>The support technician explained that the chatbot's knowledge base was not updated, so its algorithm was using old data instead of current information. "You should connect your chatbot to live product documentation, not to a static file," the technician said. "Your team must also add retrieval-augmented generation, a system that lets the software search real documents before it answers."</p>
+      <p>The technician gave more recommendations. Customers should always be able to reach a human agent when the AI cannot solve their problem. Maria's team might also want to check the chatbot's temperature setting, because a high value can make its answers less predictable. In addition, developers could add sentiment analysis, a feature that detects an angry or confused tone and sends the conversation to a person faster.</p>
+      <p>Maria thanked the technician and shared the recommendations with her team. Within a week, the company's chatbot could give correct, current answers again, and customer complaints dropped. This case shows that even smart software needs regular maintenance, human supervision, and the right hardware and software tools working together.</p>
+
+      <h2>Bibliography</h2>
+      <ul class="reference-list">
+        <li>Denser. <em>AI for IT support: 6 best practices to resolve issues faster.</em> <a href="https://denser.ai/blog/ai-technical-support/" target="_blank" rel="noopener">https://denser.ai/blog/ai-technical-support/</a></li>
+        <li>Rapid Innovation. (2025). <em>AI troubleshooting guide 2025.</em> <a href="https://www.rapidinnovation.io/post/ai-agents-for-technical-troubleshooting" target="_blank" rel="noopener">https://www.rapidinnovation.io/post/ai-agents-for-technical-troubleshooting</a></li>
+      </ul>
+
+      <h2>Analysis</h2>
+      <p>This case study illustrates the critical importance of maintaining and updating AI systems to ensure reliability. The chatbot's failure stemmed from outdated data, highlighting that static knowledge bases quickly become obsolete. The solution involved connecting the AI to live documentation, integrating retrieval-augmented generation, and adding safeguards like sentiment analysis and human fallback. Together, these measures emphasize that effective AI deployment is not just about algorithms but about continuous monitoring, human oversight, and adaptive tools that keep systems aligned with real-world needs.</p>
     </section>
   </main>
+  <footer class="site-footer"><p>Reading builds technical understanding.</p></footer>
 </body>
 </html>
