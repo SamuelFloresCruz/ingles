@@ -287,6 +287,39 @@ const vocabularyItems = [
   }
 ];
 
+const vocabularyImageFiles = {
+  Algorithm: "assets/vocabulary/algoritmo.jpeg",
+  Reliability: "assets/vocabulary/Confiabilidad.jpeg",
+  Optimization: "assets/vocabulary/Optimizacion.jpeg",
+  Complexity: "assets/vocabulary/Complejidad.jpeg",
+  Maintainability: "assets/vocabulary/Mantenibilidad.jpeg",
+  Recursion: "assets/vocabulary/Recursividad.jpeg",
+  Refactoring: "assets/vocabulary/Refactorizacion.jpeg",
+  Correctness: "assets/vocabulary/Correccion.jpeg",
+  Prompt: "assets/vocabulary/Instruccion.jpeg",
+  Queue: "assets/vocabulary/cola.jpeg",
+  Stack: "assets/vocabulary/pila.jpeg",
+  Graph: "assets/vocabulary/grafo.jpeg",
+  Heap: "assets/vocabulary/monton.jpeg",
+  Hash: "assets/vocabulary/Hash.jpeg",
+  Vulnerability: "assets/vocabulary/Vulnerabilidad.jpeg",
+  Transformer: "assets/vocabulary/Transformador.jpeg",
+  Token: "assets/vocabulary/Token.jpeg",
+  Data: "assets/vocabulary/Conjunto.jpeg",
+  Compiler: "assets/vocabulary/Compilador.jpeg",
+  Syntax: "assets/vocabulary/Sintaxis.jpeg",
+  Semantics: "assets/vocabulary/semantica.jpeg",
+  Variable: "assets/vocabulary/variable.jpeg",
+  Loop: "assets/vocabulary/bucle.jpeg",
+  Iteration: "assets/vocabulary/iteracion.jpeg",
+  Debugging: "assets/vocabulary/depuracion.jpeg",
+  Testing: "assets/vocabulary/prueba.jpeg",
+  Security: "assets/vocabulary/seguridad.jpeg",
+  Robustness: "assets/vocabulary/robustez.jpeg",
+  Memory: "assets/vocabulary/memoria.jpeg",
+  Efficiency: "assets/vocabulary/eficiencia.jpeg"
+};
+
 function buildHeader() {
   const header = document.querySelector(".site-header");
   if (!header) return;
@@ -352,6 +385,7 @@ function initVocabularyExplorer() {
   const exampleEn = document.querySelector("#vocabModalExampleEn");
   const exampleEs = document.querySelector("#vocabModalExampleEs");
   let activeCard = null;
+  const preloadedImageSources = new Set();
 
   function normalizeImageName(value) {
     return value
@@ -363,6 +397,7 @@ function initVocabularyExplorer() {
   }
 
   function getVocabularyImageSources(item) {
+    const directSource = vocabularyImageFiles[item.word];
     const names = [
       item.meaningEs,
       item.meaningEs.toLowerCase(),
@@ -377,11 +412,28 @@ function initVocabularyExplorer() {
 
     const folders = ["assets/images/vocabulary", "assets/vocabulary"];
 
-    return folders.flatMap((folder) =>
+    const fallbackSources = folders.flatMap((folder) =>
       uniqueNames.flatMap((name) =>
         extensions.map((extension) => `${folder}/${name}.${extension}`)
       )
     );
+
+    return directSource
+      ? [directSource, ...fallbackSources.filter((source) => source !== directSource)]
+      : fallbackSources;
+  }
+
+  function preloadVocabularyImage(item) {
+    const source = vocabularyImageFiles[item.word];
+    if (!source || preloadedImageSources.has(source)) return;
+    preloadedImageSources.add(source);
+    const preloadImage = new Image();
+    preloadImage.decoding = "async";
+    preloadImage.src = encodeURI(source);
+  }
+
+  function preloadVocabularyImages() {
+    vocabularyItems.forEach(preloadVocabularyImage);
   }
 
   function setVocabularyImage(item) {
@@ -471,11 +523,36 @@ function initVocabularyExplorer() {
 
   renderVocabularyList();
 
+  const schedulePreload = () => preloadVocabularyImages();
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(schedulePreload, { timeout: 1500 });
+  } else {
+    window.setTimeout(schedulePreload, 500);
+  }
+
   list.addEventListener("click", (event) => {
     const card = event.target.closest(".vocab-card");
     if (!card) return;
     const item = vocabularyItems[Number(card.dataset.vocabIndex)];
     if (item) openItem(item, card);
+  });
+
+  list.addEventListener(
+    "pointerenter",
+    (event) => {
+      const card = event.target.closest(".vocab-card");
+      if (!card) return;
+      const item = vocabularyItems[Number(card.dataset.vocabIndex)];
+      if (item) preloadVocabularyImage(item);
+    },
+    true
+  );
+
+  list.addEventListener("focusin", (event) => {
+    const card = event.target.closest(".vocab-card");
+    if (!card) return;
+    const item = vocabularyItems[Number(card.dataset.vocabIndex)];
+    if (item) preloadVocabularyImage(item);
   });
 
   modal.querySelectorAll("[data-close-vocab]").forEach((element) => {
