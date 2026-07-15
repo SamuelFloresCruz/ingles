@@ -171,6 +171,7 @@ const vocabularyItems = [
     number: "18",
     word: "Data",
     meaningEs: "Datos",
+    imageAliases: ["Conjunto"],
     definitionEn: "Raw facts, figures, or information that can be collected, stored, processed, and analyzed to produce meaningful insights or support decision-making. Data can be in the form of numbers, text, images, audio, or other types of information.",
     definitionEs: "Conjunto de hechos, cifras o informacion sin procesar que puede recopilarse, almacenarse, procesarse y analizarse para obtener informacion util o apoyar la toma de decisiones. Los datos pueden presentarse en forma de numeros, texto, imagenes, audio u otros tipos de informacion.",
     exampleEn: "The application collects user data to generate reports and improve system performance.",
@@ -366,6 +367,7 @@ function initVocabularyExplorer() {
       item.meaningEs,
       item.meaningEs.toLowerCase(),
       normalizeImageName(item.meaningEs),
+      ...(item.imageAliases || []),
       item.word,
       item.word.toLowerCase(),
       normalizeImageName(item.word)
