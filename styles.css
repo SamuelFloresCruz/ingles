@@ -1340,6 +1340,22 @@ a {
   margin: 0 auto;
 }
 
+.gallery-feature-wide {
+  width: min(1760px, 100%);
+}
+
+.gallery-feature-wide img {
+  width: 100%;
+}
+
+.gallery-feature-tall {
+  max-width: 760px;
+}
+
+.gallery-feature-tall img {
+  width: 100%;
+}
+
 .references-panel {
   max-width: 900px;
 }
